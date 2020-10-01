@@ -6,6 +6,6 @@ describe('<App/>', () => {
     test('renders welcome dummy text', () => {
         render(<App />);
 
-        expect(screen.getByText('hover me')).toBeInTheDocument();
+        expect(screen.getByRole('heading')).toHaveTextContent(`hover me`);
     });
 });
