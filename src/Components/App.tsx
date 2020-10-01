@@ -1,9 +1,11 @@
 import React from 'react';
 import {css} from 'emotion';
+import {Loader} from './common/Loader';
 
 export const App = () => {
     return (
         <header className={header}>
+            <Loader />
             <h3>Good luck in developing Calculator app!</h3>
         </header>
     );
