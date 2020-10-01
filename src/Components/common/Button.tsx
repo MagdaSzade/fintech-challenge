@@ -29,9 +29,7 @@ const button = css`
         border-color: gold;
     }
     &:focus {
-        outline-style: double;
-        outline-width: 0.3rem;
-        outline-color: red;
-        outline-offset: 0.1rem;
+        outline: none;
+        box-shadow: 0.5rem 0.5rem 1rem black;
     }
 `;
