@@ -14,6 +14,21 @@ describe('<Input>', () => {
         expect(screen.getByLabelText('input')).toBeDisabled();
     });
 
+    it('should not been valid if isRequired props is not given and empty filed', () => {
+        render(<Input label="input" type="email" />);
+        expect(screen.getByLabelText('input')).toBeInvalid();
+    });
+
+    it('should not been valid if isRequired props is true and empty filed', () => {
+        render(<Input label="input" type="email" isRequired={true} />);
+        expect(screen.getByLabelText('input')).toBeInvalid();
+    });
+
+    it('should have been valid if isRequired props is false and empty filed', () => {
+        render(<Input label="input" type="email" isRequired={false} />);
+        expect(screen.getByLabelText('input')).toBeValid();
+    });
+
     it('should be text type if no prop type present', () => {
         render(<Input label="input" />);
         expect(screen.getByLabelText('input')).toHaveAttribute('type', 'text');
