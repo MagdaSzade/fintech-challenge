@@ -5,18 +5,27 @@ import {Button} from '../../../src/Components/Button/Button';
 
 describe('<Button>', () => {
     it('should display given text prop', async () => {
-        const mockFn = jest.fn();
-        render(<Button onClick={mockFn}>Click</Button>);
+        render(<Button>Click</Button>);
         expect(screen.getByRole('button')).toHaveTextContent('Click');
     });
 
+    it('should render button type button if no type attribute given', () => {
+        render(<Button>Click</Button>);
+        expect(screen.getByRole('button')).toHaveAttribute('type', 'button');
+    });
+
+    it('should render button type button if type attribute = button', () => {
+        render(<Button type="button">Click</Button>);
+        expect(screen.getByRole('button')).toHaveAttribute('type', 'button');
+    });
+
+    it('should render button type submit if type attribute = submit', () => {
+        render(<Button type="submit">Click</Button>);
+        expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
+    });
+
     it('should render disabled button when isDisabled prop is true', () => {
-        const mockFn = jest.fn();
-        render(
-            <Button onClick={mockFn} isDisabled={true}>
-                Click
-            </Button>,
-        );
+        render(<Button isDisabled={true}>Click</Button>);
         expect(screen.getByRole('button')).toBeDisabled();
     });
 
