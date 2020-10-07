@@ -8,7 +8,7 @@ interface inputProps {
     isRequired?: boolean;
 }
 
-export const Input: React.FC<inputProps> = ({label, type = 'text', isDisabled, isRequired = true}) => {
+export const Input: React.FC<inputProps> = ({label, type = 'text', isDisabled = false, isRequired = true}) => {
     const [value, setValue] = useState('');
 
     return (
