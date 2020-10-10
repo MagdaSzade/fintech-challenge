@@ -1,21 +1,25 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
 import {BasicForm} from '../../../src/Components/BasicForm/BasicForm';
-import userEvent from '@testing-library/user-event';
-import {Formik} from 'formik';
 
 describe('<BasicForm>', () => {
-    it('should render 4 sliders elements"', () => {
+    it('should render 2 sliders elements"', () => {
         render(<BasicForm />);
-        expect(screen.getAllByRole('slider').length).toBe(4);
+        expect(screen.getAllByRole('slider').length).toBe(2);
     });
 
-    //    it('should submit form after click', () => {
-    //          ???
-    //    });
-    //
-    //    it('should submit with changed values', () => {
-    //          ???
-    //    });
-    //
+    it('should render 2 input type number elements"', () => {
+        render(<BasicForm />);
+        expect(screen.getAllByRole('spinbutton').length).toBe(2);
+    });
+
+    it('should render 4 radio buttons"', () => {
+        render(<BasicForm />);
+        expect(screen.getAllByRole('radio').length).toBe(4);
+    });
+
+    it('should render 1 submit button"', () => {
+        render(<BasicForm />);
+        expect(screen.getAllByRole('button').length).toBe(1);
+    });
 });

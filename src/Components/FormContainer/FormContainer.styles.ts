@@ -1,7 +1,7 @@
 import {css} from 'emotion';
 import {cssColors} from '../../helpers/cssConsants';
 
-export const conteiner = css({
+export const conteinerStyle = css({
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     gridGap: '0.5rem',
@@ -9,13 +9,13 @@ export const conteiner = css({
     margin: '0.5rem',
 });
 
-export const displayValue = css({
+export const displayValueStyle = css({
     display: 'grid',
     gridTemplateRows: '1fr 4fr',
     gridGap: '0.5rem',
 });
 
-export const background = css({
+export const backgroundStyle = css({
     backgroundColor: cssColors.background,
     borderRadius: '10px',
     padding: '1rem',
