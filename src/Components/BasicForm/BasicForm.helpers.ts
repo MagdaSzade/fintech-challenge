@@ -25,5 +25,5 @@ export const displayDuration = (n: number): string => {
 };
 
 export const displayRateOfReturn = (n: number): string => {
-    return n % 1 === 0 ? `${n}.0%` : `${n}%`;
+    return `${n.toFixed(1)}%`;
 };

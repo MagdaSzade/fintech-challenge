@@ -1,10 +1,10 @@
 import React from 'react';
 import {BasicForm} from '../BasicForm/BasicForm';
-import {conteinerStyle, displayValueStyle, backgroundStyle} from './FormContainer.styles';
+import {containerStyle, displayValueStyle, backgroundStyle} from './FormContainer.styles';
 
 export const FormContainer: React.FC = () => {
     return (
-        <div className={conteinerStyle}>
+        <div className={containerStyle}>
             <div className={backgroundStyle}>
                 <BasicForm />
             </div>
