@@ -1,8 +1,8 @@
 export interface basicInvestition {
-    initialCapital: number;
+    firstDeposit: number;
     depositFrequency: string | 'MONTH' | 'QUARTER' | 'HALF_YEAR' | 'YEAR';
-    duration: number;
-    rateOfProfit: number;
+    durationInYears: number;
+    returnOnInvestment: number;
     systematicPayments: number;
 }
 

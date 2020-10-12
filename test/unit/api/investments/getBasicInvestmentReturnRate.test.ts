@@ -4,10 +4,10 @@ import axios from 'axios';
 describe('getBasicInvestmentReturnRate', () => {
     it('should call axios.post', async () => {
         const investition = {
-            initialCapital: 100,
+            firstDeposit: 100,
             depositFrequency: 'MONTH',
-            duration: 10,
-            rateOfProfit: 2,
+            durationInYears: 10,
+            returnOnInvestment: 2,
             systematicPayments: 100,
         };
         const returnData = {
@@ -23,10 +23,10 @@ describe('getBasicInvestmentReturnRate', () => {
 
     it('should return interfece type basicInvestitionReturnRate when response data is correct', async () => {
         const investition = {
-            initialCapital: 100,
+            firstDeposit: 100,
             depositFrequency: 'MONTH',
-            duration: 10,
-            rateOfProfit: 2,
+            durationInYears: 10,
+            returnOnInvestment: 2,
             systematicPayments: 100,
         };
         const expectedValue = {
@@ -50,10 +50,10 @@ describe('getBasicInvestmentReturnRate', () => {
 
     it('should return null if one of return data field is missing', async () => {
         const investition = {
-            initialCapital: 100,
+            firstDeposit: 100,
             depositFrequency: 'MONTH',
-            duration: 10,
-            rateOfProfit: 2,
+            durationInYears: 10,
+            returnOnInvestment: 2,
             systematicPayments: 100,
         };
         const axiosReturn = {
@@ -69,10 +69,10 @@ describe('getBasicInvestmentReturnRate', () => {
 
     it('should return null if promise is rejected', async () => {
         const investition = {
-            initialCapital: 100,
+            firstDeposit: 100,
             depositFrequency: 'MONTH',
-            duration: 10,
-            rateOfProfit: 2,
+            durationInYears: 10,
+            returnOnInvestment: 2,
             systematicPayments: 100,
         };
         const spy = jest.spyOn(axios, 'post').mockRejectedValue(new Error(''));

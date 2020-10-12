@@ -3,9 +3,9 @@ import {basicInvestition, basicInvestitionReturnRate} from '../../helpers/invest
 
 export const getBasicInvestmentReturnRate: (data: basicInvestition) => Promise<basicInvestitionReturnRate | null> = async ({
     depositFrequency,
-    duration,
-    initialCapital,
-    rateOfProfit,
+    durationInYears,
+    firstDeposit,
+    returnOnInvestment,
     systematicPayments,
 }) => {
     try {
@@ -13,12 +13,11 @@ export const getBasicInvestmentReturnRate: (data: basicInvestition) => Promise<b
             data: {ylabels, payments, profit, investmentValue},
         } = await axios.post('/api/investments/investition', {
             depositFrequency,
-            duration,
-            initialCapital,
-            rateOfProfit,
+            durationInYears,
+            firstDeposit,
+            returnOnInvestment,
             systematicPayments,
         });
-        console.log({ylabels, payments, profit, investmentValue});
         if (!ylabels || !payments || !profit || !investmentValue) {
             return null;
         } else {

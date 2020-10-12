@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {basicInvestition, basicInvestitionReturnRate} from '../helpers/investitionInterface';
 import {getBasicInvestmentReturnRate} from '../api/investments/getBasicInvestmentReturnRate';
 
