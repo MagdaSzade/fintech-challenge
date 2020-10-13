@@ -1,25 +1,40 @@
 import React from 'react';
-import {render, screen} from '@testing-library/react';
+import {render, screen, waitFor} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {BasicForm} from '../../../src/Components/BasicForm/BasicForm';
 
 describe('<BasicForm>', () => {
-    it('should render 2 sliders elements"', () => {
-        render(<BasicForm />);
-        expect(screen.getAllByRole('slider').length).toBe(2);
+    it('should call onSubmit prop with default values', async () => {
+        const onSubmit = jest.fn();
+        const expectedValue = {
+            firstDeposit: 10000,
+            durationInYears: 60,
+            depositFrequency: 'MONTH',
+            systematicPayments: 100,
+            returnOnInvestment: 5,
+        };
+        render(<BasicForm onSubmit={onSubmit} />);
+        userEvent.click(screen.getByRole('button', {name: /przelicz/i}));
+        await waitFor(() => {
+            expect(onSubmit).toHaveBeenCalledWith(expectedValue);
+        });
     });
 
-    it('should render 2 input type number elements"', () => {
-        render(<BasicForm />);
-        expect(screen.getAllByRole('spinbutton').length).toBe(2);
+    it('should call onSubmit with changedValues', async () => {
+        const mockFn = jest.fn();
+        const expectedValue = {
+            firstDeposit: 1000030,
+            durationInYears: 60,
+            depositFrequency: 'MONTH',
+            systematicPayments: 100,
+            returnOnInvestment: 5,
+        };
+        render(<BasicForm onSubmit={mockFn} />);
+        userEvent.type(screen.getByRole('spinbutton', {name: /ile chciałbyś na początku zainwestować\?/i}), '30');
+        userEvent.click(screen.getByRole('button', {name: /przelicz/i}));
+        await waitFor(() => {
+            expect(mockFn).toHaveBeenCalledWith(expectedValue);
+        });
     });
-
-    it('should render 4 radio buttons"', () => {
-        render(<BasicForm />);
-        expect(screen.getAllByRole('radio').length).toBe(4);
-    });
-
-    it('should render 1 submit button"', () => {
-        render(<BasicForm />);
-        expect(screen.getAllByRole('button').length).toBe(1);
-    });
+    //todo: write test for changing other values.
 });
