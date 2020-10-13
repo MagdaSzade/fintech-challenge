@@ -23,14 +23,14 @@ describe('useBasicInvestReturnRate', () => {
             profit: [10, 20, 30],
             investmentValue: [110, 220, 330],
         };
-        const spy = jest.spyOn(apiCall, 'getBasicInvestmentReturnRate').mockResolvedValue(returnData);
+        jest.spyOn(apiCall, 'getBasicInvestmentReturnRate').mockResolvedValue(returnData);
         const {result} = renderHook(() => useBasicInvestReturnRate());
 
         act(() => {
             result.current.setNewInvestistion(investition);
         });
 
-        expect(spy).toHaveBeenCalledWith(investition);
+        expect(apiCall.getBasicInvestmentReturnRate).toHaveBeenCalledWith(investition);
     });
 
     it('should return mocked returnData from call getBasicInvestmentReturnRate', async () => {
@@ -47,7 +47,7 @@ describe('useBasicInvestReturnRate', () => {
             profit: [10, 20, 30],
             investmentValue: [110, 220, 330],
         };
-        const spy = jest.spyOn(apiCall, 'getBasicInvestmentReturnRate').mockResolvedValue(returnData);
+        jest.spyOn(apiCall, 'getBasicInvestmentReturnRate').mockResolvedValue(returnData);
         const {result} = renderHook(() => useBasicInvestReturnRate());
 
         await act(() => {
