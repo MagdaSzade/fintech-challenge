@@ -7,11 +7,11 @@ describe('<BasicForm>', () => {
     it('should call onSubmit prop with default values', async () => {
         const onSubmit = jest.fn();
         const expectedValue = {
-            firstDeposit: 10000,
-            durationInYears: 60,
-            depositFrequency: 'MONTH',
-            systematicPayments: 100,
-            returnOnInvestment: 5,
+            initialCapital: 10000,
+            duration: 60,
+            systematicPaymentPeriod: 'MONTH',
+            systematicPaymentValue: 100,
+            rateOfReturn: 5,
         };
         render(<BasicForm onSubmit={onSubmit} />);
         userEvent.click(screen.getByRole('button', {name: /przelicz/i}));
@@ -23,11 +23,11 @@ describe('<BasicForm>', () => {
     it('should call onSubmit with changedValues', async () => {
         const mockFn = jest.fn();
         const expectedValue = {
-            firstDeposit: 1000030,
-            durationInYears: 60,
-            depositFrequency: 'MONTH',
-            systematicPayments: 100,
-            returnOnInvestment: 5,
+            initialCapital: 1000030,
+            duration: 60,
+            systematicPaymentPeriod: 'MONTH',
+            systematicPaymentValue: 100,
+            rateOfReturn: 5,
         };
         render(<BasicForm onSubmit={mockFn} />);
         userEvent.type(screen.getByRole('spinbutton', {name: /ile chciałbyś na początku zainwestować\?/i}), '30');
