@@ -16,9 +16,3 @@ export const logoStyle = css({
 export const logoPStyle = css({
     fontSize: '1.5rem',
 });
-
-export const navStyle = css({
-    fontSize: '0.5rem',
-    display: 'flex',
-    alignItems: 'center',
-});
