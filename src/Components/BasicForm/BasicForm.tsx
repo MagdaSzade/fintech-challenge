@@ -1,9 +1,10 @@
 import React from 'react';
 import {Formik} from 'formik';
-import {Slider, Input, Button, Radio, RadioGroup, FormControlLabel} from '@material-ui/core';
-import {basicInvestition} from '../../helpers/investitionInterface';
-import {displayDuration, displayRateOfReturn} from './BasicForm.helpers';
-import {formStyles, grid, radioStyle, labelStyle} from './BasicForm.styles';
+import {RadioField} from './BasicFormRadioField';
+import {Slider, Input, Button} from '@material-ui/core';
+import {basicInvestition} from '../../helpers/types';
+import {displayDuration, displayRateOfReturn, initialValues} from './BasicForm.helpers';
+import {formStyles, grid, labelStyle} from './BasicForm.styles';
 
 interface BasicFormProps {
     onSubmit: (data: basicInvestition) => void;
@@ -11,96 +12,79 @@ interface BasicFormProps {
 
 export const BasicForm: React.FC<BasicFormProps> = ({onSubmit}) => (
     <Formik
-        initialValues={{
-            firstDeposit: 10000,
-            durationInYears: 60,
-            depositFrequency: 'MONTH',
-            systematicPayments: 100,
-            returnOnInvestment: 5,
-        }}
+        initialValues={initialValues}
         onSubmit={values => {
             onSubmit(values);
         }}
     >
         {({
-            values: {firstDeposit, durationInYears, depositFrequency, systematicPayments, returnOnInvestment},
+            values: {initialCapital, duration, systematicPaymentPeriod, systematicPaymentValue, rateOfReturn},
             handleChange,
             setFieldValue,
             handleSubmit,
         }) => (
             <form className={formStyles}>
-                <label className={labelStyle} htmlFor="firstDeposit">
+                <label className={labelStyle} htmlFor="initialCapital">
                     Ile chciałbyś na początku zainwestować?
                 </label>
                 <div className={grid}>
                     <Input
-                        name="firstDeposit"
-                        id="firstDeposit"
+                        name="initialCapital"
+                        id="initialCapital"
                         type="number"
-                        value={firstDeposit}
+                        value={initialCapital}
                         onChange={handleChange}
                         inputProps={{min: '1000', max: '1000000', step: '100'}}
                         fullWidth={true}
                     />{' '}
                     PLN
                 </div>
-                <label className={labelStyle} htmlFor="durationInYears">
+                <label className={labelStyle} htmlFor="duration">
                     Jak długo chcesz oszczędzać?
                 </label>
                 <div className={grid}>
                     <Slider
-                        name="durationInYears"
-                        id="durationInYears"
-                        value={durationInYears}
+                        name="duration"
+                        id="duration"
+                        value={duration}
                         min={1}
                         max={120}
                         step={1}
-                        onChange={(e, value) => setFieldValue('durationInYears', value)}
+                        onChange={(e, value) => setFieldValue('duration', value)}
                     />
-                    <div>{displayDuration(durationInYears)}</div>
+                    <div>{displayDuration(duration)}</div>
                 </div>
                 <label className={labelStyle}>Deklaruję, że co:</label>
-                <RadioGroup
-                    className={radioStyle}
-                    aria-label="depositFrequency"
-                    name="depositFrequency"
-                    value={depositFrequency}
-                    onChange={handleChange}
-                >
-                    <FormControlLabel value="MONTH" control={<Radio />} label="miesiąc" />
-                    <FormControlLabel value="QUARTER" control={<Radio />} label="kwartał" />
-                    <FormControlLabel value="HALF_YEAR" control={<Radio />} label="pół roku" />
-                    <FormControlLabel value="YEAR" control={<Radio />} label="rok" />
-                </RadioGroup>
-                <label className={labelStyle} htmlFor="systematicPayments">
+                <RadioField onChange={handleChange} value={systematicPaymentPeriod} />
+                <label className={labelStyle} htmlFor="systematicPaymentValue">
                     będę dopłacać
                 </label>
                 <div className={grid}>
                     <Input
-                        name="systematicPayments"
-                        id="systematicPayments"
+                        name="systematicPaymentValue"
+                        id="systematicPaymentValue"
                         type="number"
-                        value={systematicPayments}
+                        value={systematicPaymentValue}
                         onChange={handleChange}
                         inputProps={{min: '100', max: '1000000', step: '100'}}
                         fullWidth={true}
                     />{' '}
                     PLN
                 </div>
-                <label className={labelStyle} htmlFor="returnOnInvestment">
+                <label className={labelStyle} htmlFor="rateOfReturn">
                     Jakiego zwrotu rocznego oczekujesz?
                 </label>
                 <div className={grid}>
                     <Slider
-                        name="returnOnInvestment"
-                        id="returnOnInvestment"
-                        value={returnOnInvestment}
+                        name="rateOfReturn"
+                        id="rateOfReturn"
+                        value={rateOfReturn}
                         min={1}
                         max={10}
                         step={0.1}
-                        onChange={(e, value) => setFieldValue('returnOnInvestment', value)}
+                        onChange={(e, value) => setFieldValue('rateOfReturn', value)}
                     />
-                    <div>{displayRateOfReturn(returnOnInvestment)}</div>
+                    <div>{displayRateOfReturn(rateOfReturn)}</div>
                 </div>
                 <Button
                     type="button"

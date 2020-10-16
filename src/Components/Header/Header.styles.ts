@@ -8,9 +8,12 @@ export const headerStyle = css({
     justifyContent: 'space-between',
 });
 
-export const siteName = css({
+export const logoStyle = css({
     display: 'flex',
     alignItems: 'center',
+});
+
+export const logoPStyle = css({
     fontSize: '1.5rem',
 });
 

@@ -1,10 +1,5 @@
 import React from 'react';
-import {Root, Content} from './Loader.styles';
-
+import {BiLoaderCircle} from 'react-icons/bi';
 export const Loader: React.FC = () => {
-    return (
-        <Root>
-            <Content />
-        </Root>
-    );
+    return <BiLoaderCircle />;
 };

@@ -1,14 +1,15 @@
 import React from 'react';
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import {RiShoppingBasketLine} from 'react-icons/ri';
 import Button from '@material-ui/core/Button';
-import {headerStyle, siteName, navStyle} from './Header.styles';
+import {Logo} from './HeaderLogo';
+import {headerStyle, navStyle} from './Header.styles';
 
 export const Header: React.FC = () => {
     return (
         <header className={headerStyle}>
-            <p className={siteName}>Inwestuj z CareBear</p>
+            <Logo />
             <div className={navStyle}>
-                <ShoppingBasketIcon />
+                <RiShoppingBasketLine />
                 <Button size="small">Zaloguj</Button>
             </div>
         </header>
