@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import {navigationButtons} from './NavBar.helpers';
 import {container, buttonStyle} from './NavBar.styles';
 
@@ -7,7 +7,7 @@ export const NavBar: React.FC = () => {
     const createButtons = navigationButtons.map(button => {
         return (
             <div className={buttonStyle} key={button.name}>
-                <Link to={button.route}>{typeof button.display === 'string' ? button.display : <button.display />}</Link>
+                <NavLink to={button.route}>{typeof button.display === 'string' ? button.display : <button.display />}</NavLink>
             </div>
         );
     });
