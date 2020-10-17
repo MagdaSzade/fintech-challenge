@@ -9,9 +9,9 @@ describe('<BasicForm>', () => {
         const expectedValue = {
             initialCapital: 10000,
             duration: 60,
-            systematicPaymentPeriod: 'MONTH',
-            systematicPaymentValue: 100,
-            rateOfReturn: 5,
+            depositFrequency: 'MONTH',
+            additionalContribution: 100,
+            returnRate: 5,
         };
         render(<BasicForm onSubmit={onSubmit} />);
         userEvent.click(screen.getByRole('button', {name: /przelicz/i}));
@@ -25,9 +25,9 @@ describe('<BasicForm>', () => {
         const expectedValue = {
             initialCapital: 1000030,
             duration: 60,
-            systematicPaymentPeriod: 'MONTH',
-            systematicPaymentValue: 100,
-            rateOfReturn: 5,
+            depositFrequency: 'MONTH',
+            additionalContribution: 100,
+            returnRate: 5,
         };
         render(<BasicForm onSubmit={mockFn} />);
         userEvent.type(screen.getByRole('spinbutton', {name: /ile chciałbyś na początku zainwestować\?/i}), '30');

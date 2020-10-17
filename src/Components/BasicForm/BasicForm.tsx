@@ -18,7 +18,7 @@ export const BasicForm: React.FC<BasicFormProps> = ({onSubmit}) => (
         }}
     >
         {({
-            values: {initialCapital, duration, systematicPaymentPeriod, systematicPaymentValue, rateOfReturn},
+            values: {initialCapital, duration, depositFrequency, additionalContribution, returnRate},
             handleChange,
             setFieldValue,
             handleSubmit,
@@ -55,36 +55,36 @@ export const BasicForm: React.FC<BasicFormProps> = ({onSubmit}) => (
                     <div>{displayDuration(duration)}</div>
                 </div>
                 <label className={labelStyle}>Deklaruję, że co:</label>
-                <RadioField onChange={handleChange} value={systematicPaymentPeriod} />
-                <label className={labelStyle} htmlFor="systematicPaymentValue">
+                <RadioField onChange={handleChange} value={depositFrequency} />
+                <label className={labelStyle} htmlFor="additionalContribution">
                     będę dopłacać
                 </label>
                 <div className={grid}>
                     <Input
-                        name="systematicPaymentValue"
-                        id="systematicPaymentValue"
+                        name="additionalContribution"
+                        id="additionalContribution"
                         type="number"
-                        value={systematicPaymentValue}
+                        value={additionalContribution}
                         onChange={handleChange}
                         inputProps={{min: '100', max: '1000000', step: '100'}}
                         fullWidth={true}
                     />{' '}
                     PLN
                 </div>
-                <label className={labelStyle} htmlFor="rateOfReturn">
+                <label className={labelStyle} htmlFor="returnRate">
                     Jakiego zwrotu rocznego oczekujesz?
                 </label>
                 <div className={grid}>
                     <Slider
-                        name="rateOfReturn"
-                        id="rateOfReturn"
-                        value={rateOfReturn}
+                        name="returnRate"
+                        id="returnRate"
+                        value={returnRate}
                         min={1}
                         max={10}
                         step={0.1}
-                        onChange={(e, value) => setFieldValue('rateOfReturn', value)}
+                        onChange={(e, value) => setFieldValue('returnRate', value)}
                     />
-                    <div>{displayRateOfReturn(rateOfReturn)}</div>
+                    <div>{displayRateOfReturn(returnRate)}</div>
                 </div>
                 <Button
                     type="button"

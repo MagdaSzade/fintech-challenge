@@ -1,4 +1,4 @@
-import {paymentPeriods} from '../../helpers/types';
+import {basicInvestition, paymentPeriods} from '../../helpers/types';
 
 export const displayDuration = (n: number): string => {
     const years: number = Math.floor(n / 12);
@@ -30,10 +30,10 @@ export const displayRateOfReturn = (n: number): string => {
     return `${n.toFixed(1)}%`;
 };
 
-export const initialValues = {
+export const initialValues: basicInvestition = {
     initialCapital: 10000,
     duration: 60,
-    systematicPaymentPeriod: paymentPeriods.MONTH,
-    systematicPaymentValue: 100,
-    rateOfReturn: 5,
+    depositFrequency: paymentPeriods.MONTH,
+    additionalContribution: 100,
+    returnRate: 5,
 };

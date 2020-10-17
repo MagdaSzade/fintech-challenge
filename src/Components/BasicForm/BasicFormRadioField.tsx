@@ -10,13 +10,7 @@ interface RadioFieldProps {
 
 export const RadioField: React.FC<RadioFieldProps> = ({onChange, value}) => {
     return (
-        <RadioGroup
-            className={radioStyle}
-            aria-label="systematicPaymentPeriod"
-            name="systematicPaymentPeriod"
-            value={value}
-            onChange={onChange}
-        >
+        <RadioGroup className={radioStyle} aria-label="depositFrequency" name="depositFrequency" value={value} onChange={onChange}>
             <FormControlLabel value={paymentPeriods.NULL} control={<Radio />} label="nic" />
             <FormControlLabel value={paymentPeriods.MONTH} control={<Radio />} label="miesiąc" />
             <FormControlLabel value={paymentPeriods.QUARTER} control={<Radio />} label="kwartał" />

@@ -1,8 +1,8 @@
 export interface basicInvestition {
     initialCapital: number;
-    systematicPaymentPeriod: paymentPeriods;
-    systematicPaymentValue: number;
-    rateOfReturn: number;
+    depositFrequency: paymentPeriods;
+    additionalContribution: number;
+    returnRate: number;
     duration: number;
 }
 
