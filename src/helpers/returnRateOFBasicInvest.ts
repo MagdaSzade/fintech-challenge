@@ -2,9 +2,9 @@ import {basicInvestition, basicInvestitionReturnRate, paymentPeriods} from './ty
 
 export const returnRate = ({
     initialCapital,
-    systematicPaymentPeriod,
-    systematicPaymentValue,
-    rateOfReturn,
+    depositFrequency,
+    additionalContribution,
+    returnRate,
     duration,
 }: basicInvestition): basicInvestitionReturnRate => {
     let depositValue = initialCapital;
@@ -12,26 +12,26 @@ export const returnRate = ({
     let totalReturn = initialCapital;
     const deposits = [{month: 0, depositValue: initialCapital, totalProfit: initialCapital}];
 
-    const sysPayPerNumber = systematicPaymentPeriodInMonths(systematicPaymentPeriod);
+    const sysPayPerNumber = depositFrequencyInMonths(depositFrequency);
 
     for (let i = 1; i <= duration; i++) {
-        profitValue = (totalReturn * rateOfReturn) / 1200;
+        profitValue = (totalReturn * returnRate) / 1200;
 
         if (sysPayPerNumber !== 0 && i % sysPayPerNumber === 0) {
-            depositValue += systematicPaymentValue;
-            totalReturn += systematicPaymentValue;
+            depositValue += additionalContribution;
+            totalReturn += additionalContribution;
         }
         totalReturn += profitValue;
 
         deposits.push({month: i, depositValue, totalProfit: totalReturn});
     }
 
-    const dangerMark = dangerMarkValue(rateOfReturn);
+    const dangerMark = dangerMarkValue(returnRate);
 
     return {capital: depositValue, dangerMark, total: totalReturn, data: deposits};
 };
 
-const systematicPaymentPeriodInMonths = (months: paymentPeriods): number => {
+const depositFrequencyInMonths = (months: paymentPeriods): number => {
     switch (months) {
         case paymentPeriods.NULL:
             return 0;
