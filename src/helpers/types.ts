@@ -19,6 +19,13 @@ export interface basicInvestitionReturnRate {
     capital: number;
 }
 
+export interface investition extends basicInvestition {
+    companyName: string;
+    id: string;
+    logoUrl: string;
+    type: string;
+}
+
 export enum paymentPeriods {
     NULL = 'NULL',
     MONTH = 'MONTH',
