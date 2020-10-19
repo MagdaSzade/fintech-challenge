@@ -1,10 +1,14 @@
-import {axios} from '../rest/axios';
+import {backend} from '../rest/backend';
 import {basicInvestition} from '../../helpers/types';
 
 export const getInvestitions = (data: basicInvestition) => {
-    return axios.get('/investments', {
+    return backend.get('/investments', {
         params: {
             ...data,
+        },
+        auth: {
+            username: 'admisie',
+            password: 'mis_yogi',
         },
     });
 };

@@ -1,6 +1,6 @@
 import {useCallback, useState} from 'react';
-import {getInvestitions} from '../api/investitions/investitionsApi';
-import {investition, basicInvestition} from '../helpers/types';
+import {getInvestitions} from '../../api/investitions/investitionsApi';
+import {investition, basicInvestition} from '../../helpers/types';
 
 export const useFetchInvestitions = () => {
     const [isFetching, setIsFetching] = useState<boolean>(false);

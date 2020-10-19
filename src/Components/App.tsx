@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {FormContainer} from './FormContainer/FormContainer';
 import {InvestitionsContainer} from './InvestitionsContainer/InvestitionsContainer';
 import {BasketContainer} from './BasketContainer/BasketContainer';
+import {ROUTES} from '../helpers/routes';
 
 export const App = () => {
     return (
@@ -13,9 +14,9 @@ export const App = () => {
                 <div className="content-conteiner">
                     <Header />
                     <Switch>
-                        <Route path="/investitions" component={InvestitionsContainer} />
-                        <Route path="/basket" component={BasketContainer} />
-                        <Route path="/" component={FormContainer} />
+                        <Route path={ROUTES.INVESTITIONS_LIST} component={InvestitionsContainer} />
+                        <Route path={ROUTES.BASKET} component={BasketContainer} />
+                        <Route path={ROUTES.HOME} component={FormContainer} />
                     </Switch>
                 </div>
             </div>

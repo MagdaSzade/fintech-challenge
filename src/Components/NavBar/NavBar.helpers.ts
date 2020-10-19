@@ -1,5 +1,6 @@
 import React from 'react';
 import {RiShoppingBasketLine, RiHome4Fill} from 'react-icons/ri';
+import {ROUTES} from '../../helpers/routes';
 
 interface navButton {
     name: string;
@@ -10,17 +11,17 @@ interface navButton {
 export const navigationButtons: Array<navButton> = [
     {
         name: 'investitions',
-        route: '/investitions',
+        route: ROUTES.INVESTITIONS_LIST,
         display: 'Zainwestuj',
     },
     {
         name: 'basket',
-        route: '/basket',
+        route: ROUTES.BASKET,
         display: RiShoppingBasketLine,
     },
     {
         name: 'home',
-        route: '/',
+        route: ROUTES.HOME,
         display: RiHome4Fill,
     },
 ];
