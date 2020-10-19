@@ -1,5 +1,4 @@
-import React from 'react';
-import {useBasicInvestReturnRate} from '../../../src/hooks/useBasicInvestReturnRate';
+import {useBasicInvestReturnRate} from '../../../src/hooks/investitions/useBasicInvestReturnRate';
 import {renderHook, act} from '@testing-library/react-hooks';
 import * as helper from '../../../src/helpers/returnRateOFBasicInvest';
 import {initialValues} from '../../../src/Components/BasicForm/BasicForm.helpers';

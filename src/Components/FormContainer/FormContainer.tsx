@@ -2,7 +2,7 @@ import React from 'react';
 import {BasicForm} from '../BasicForm/BasicForm';
 import {DisplayInvestition} from '../DisplayInvestition/DisplayInvestition';
 import {InvestitionSummary} from '../InvestitionSummary/InvestitionSummary';
-import {useBasicInvestReturnRate} from '../../hooks/useBasicInvestReturnRate';
+import {useBasicInvestReturnRate} from '../../hooks/investitions/useBasicInvestReturnRate';
 import {containerStyle, backgroundStyle, graphStyle, flex} from './FormContainer.styles';
 import {Button} from '@material-ui/core';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import {BasicForm} from '../BasicForm/BasicForm';
 import {ListOfInvestitions} from '../ListOfInvestitions/ListOfInvestitions';
 import {investitionsContainerStyles} from './InvestitionsContainer.styles';
-import {useFetchInvestitions} from '../../hooks/useFetchInvestitions';
+import {useFetchInvestitions} from '../../hooks/investitions/useFetchInvestitions';
 import {Loader} from '../Loader/Loader';
 
 export const InvestitionsContainer: React.FC = () => {
