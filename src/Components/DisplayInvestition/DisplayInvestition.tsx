@@ -1,6 +1,5 @@
 import React from 'react';
 import {cssColors} from '../../helpers/cssConsants';
-//import { returnRate } from '../../helpers/returnRateOFBasicInvest';
 import {AreaChart, Area, CartesianGrid, XAxis, YAxis, Tooltip} from 'recharts';
 
 interface DisplayInvestitionProps {
