@@ -7,7 +7,10 @@ import {containerStyle, backgroundStyle, graphStyle, flex} from './FormContainer
 import {Button} from '@material-ui/core';
 
 export const FormContainer: React.FC = () => {
-    const {investitionRetunData, setNewInvestistion} = useBasicInvestReturnRate();
+    const {
+        investitionRetunData: {total, capital, riskFactory, data},
+        setNewInvestistion,
+    } = useBasicInvestReturnRate();
 
     return (
         <div className={containerStyle}>
@@ -15,17 +18,13 @@ export const FormContainer: React.FC = () => {
                 <BasicForm onSubmit={setNewInvestistion} />
             </div>
             <div className={`${backgroundStyle} ${flex}`}>
-                <InvestitionSummary
-                    total={investitionRetunData.total}
-                    capital={investitionRetunData.capital}
-                    dangerMark={investitionRetunData.dangerMark}
-                />
+                <InvestitionSummary total={total} capital={capital} dangerMark={riskFactory} />
                 <Button type="button" variant="contained">
                     Przejdź do inwestycji
                 </Button>
             </div>
             <div className={`${backgroundStyle} ${graphStyle}`}>
-                <DisplayInvestition data={investitionRetunData.data} />
+                <DisplayInvestition data={data} />
             </div>
         </div>
     );

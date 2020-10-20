@@ -26,9 +26,9 @@ export const returnRate = ({
         deposits.push({month: i, depositValue, totalProfit: totalReturn});
     }
 
-    const dangerMark = dangerMarkValue(returnRate);
+    const riskFactory = riskFactoryValue(returnRate);
 
-    return {capital: depositValue, dangerMark, total: totalReturn, data: deposits};
+    return {capital: depositValue, riskFactory, total: totalReturn, data: deposits};
 };
 
 const depositFrequencyInMonths = (months: paymentPeriods): number => {
@@ -46,6 +46,6 @@ const depositFrequencyInMonths = (months: paymentPeriods): number => {
     }
 };
 
-const dangerMarkValue = (n: number): number => {
+const riskFactoryValue = (n: number): number => {
     return n < 2 ? 1 : n > 8 ? 7 : Math.round(n - 1);
 };

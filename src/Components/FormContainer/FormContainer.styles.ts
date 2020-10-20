@@ -10,12 +10,6 @@ export const containerStyle = css({
     justifyItems: 'center',
 });
 
-export const displayValueStyle = css({
-    display: 'grid',
-    gridTemplateRows: '1fr 4fr',
-    gridGap: '0.5rem',
-});
-
 export const backgroundStyle = css({
     width: '100%',
     backgroundColor: cssColors.background,
