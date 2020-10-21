@@ -39,6 +39,7 @@
         "test": "jest",
         "eject": "react-scripts eject"
     },
+    "proxy": "http://backend.carpo-team.sit.fintechchallenge.pl/",
     "eslintConfig": {
         "extends": "react-app"
     },
