@@ -66,6 +66,11 @@ pipeline {
                 script {
                     docker.withRegistry("https://carpo-team-docker-registry.fintechchallenge.pl/v2/", 'docker-push-user') {
                         def build = docker.build("carpo-team/calculator-front", '-f ./docker/Dockerfile .')
+                        def commitHash = sh(
+                            script: 'git rev-parse HEAD',
+                            returnStdout: true
+                        )
+                        build.push(commitHash)
                         build.push("latest")
                     }
                 }

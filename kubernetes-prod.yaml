@@ -19,7 +19,7 @@ spec:
                 - name: fintech-docker-secret
             containers:
                 - name: calculator-front
-                  image: carpo-team-docker-registry.fintechchallenge.pl/carpo-team/calculator-front:latest
+                  image: carpo-team-docker-registry.fintechchallenge.pl/carpo-team/calculator-front:image_version_placeholder
                   imagePullPolicy: Always
                   env:
                       - name: API_BASE_PATH
