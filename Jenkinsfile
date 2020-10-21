@@ -1,28 +1,50 @@
 pipeline {
-    agent none
-
+    agent {
+        docker {
+            image 'fintech/base-agent'
+            args '--network host -e DOCKER_HOST=tcp://localhost:2375'
+        }
+    }
+    options {
+        ansiColor('xterm')
+        timestamps()
+    }
     environment {
         CI = 'true'
     }
-
     stages {
         stage('Build') {
-            agent { docker 'node:12.16.1-stretch-slim' }
+            agent {
+                docker {
+                    image 'node:12.16.1-stretch-slim'
+                    reuseNode true
+                }
+            }
             steps {
-                sh 'echo "registry=https://nexus.fintechchallenge.pl/repository/npm\n//nexus.fintechchallenge.pl/repository/npm/:_authToken=NpmToken.434397a1-9630-3664-8603-21bf57209914\nalways-auth=true" >> ~/.npmrc'
+                sh 'echo "registry=https://nexus.fintechchallenge.pl/repository/npm" >> ~/.npmrc'
                 sh 'yarn'
                 sh 'yarn build'
             }
         }
         stage('Test') {
-            agent { docker 'node:12.16.1-stretch-slim'}
+            agent {
+                docker {
+                    image 'node:12.16.1-stretch-slim'
+                    reuseNode true
+                }
+            }
             steps {
                 sh 'yarn test'
             }
         }
         stage('Sonar') {
             when { branch 'master' }
-            agent { docker 'fintech/sonar-agent' }
+            agent {
+                docker {
+                    image 'fintech/sonar-agent'
+                    reuseNode true
+                }
+            }
             steps {
                 withSonarQubeEnv('SonarQube') {
                     script {
@@ -33,10 +55,16 @@ pipeline {
         }
         stage('Docker push') {
             when { branch 'master' }
-            agent none
+            agent {
+                docker {
+                    image 'fintech/base-agent'
+                    reuseNode true
+                    args '--network host -e DOCKER_HOST=tcp://localhost:2375'
+                }
+            }
             steps {
                 script {
-                    docker.withRegistry('https://carpo-team-docker-registry.fintechchallenge.pl/v2/', 'docker-push-user') {
+                    docker.withRegistry("https://carpo-team-docker-registry.fintechchallenge.pl/v2/", 'docker-push-user') {
                         def build = docker.build("carpo-team/calculator-front", '-f ./docker/Dockerfile .')
                         build.push("latest")
                     }
@@ -45,7 +73,12 @@ pipeline {
         }
         stage('Deploy Sit') {
             when { branch 'master' }
-            agent { docker 'fintech/kubernetes-agent' }
+            agent {
+                docker {
+                    image 'fintech/kubernetes-agent'
+                    reuseNode true
+                }
+            }
             steps {
                 script {
                     withCredentials([file(credentialsId: 'kubeconfig-sit', variable: 'KUBECONFIG')]) {
@@ -57,7 +90,12 @@ pipeline {
         }
         stage('Deploy Uat') {
             when { branch 'master' }
-            agent { docker 'fintech/kubernetes-agent' }
+            agent {
+                docker {
+                    image 'fintech/kubernetes-agent'
+                    reuseNode true
+                }
+            }
             steps {
                 script {
                     withCredentials([file(credentialsId: 'kubeconfig-uat', variable: 'KUBECONFIG')]) {
