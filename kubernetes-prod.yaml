@@ -23,7 +23,7 @@ spec:
                   imagePullPolicy: Always
                   env:
                       - name: API_BASE_PATH
-                        value: https://backend.carpo-team.prod.fintechchallenge.pl
+                        value: https://backend.carpo-team.fintechchallenge.pl
                   ports:
                       - name: web
                         containerPort: 80
@@ -105,7 +105,7 @@ spec:
         - websecure
     routes:
         - kind: Rule
-          match: Host(`calculator-front.carpo-team.prod.fintechchallenge.pl`)
+          match: Host(`calculator-front.carpo-team.fintechchallenge.pl`)
           middlewares:
               - name: fintech-prod-carpo-team-basic-auth-middleware
                 namespace: fintech-prod-carpo-team
@@ -121,4 +121,4 @@ spec:
             namespace: fintech-prod-carpo-team
         certResolver: hltech
         domains:
-            - main: calculator-front.carpo-team.prod.fintechchallenge.pl
+            - main: calculator-front.carpo-team.fintechchallenge.pl
