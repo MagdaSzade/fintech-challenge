@@ -1,21 +1,25 @@
 import React from 'react';
-import {Radio, RadioGroup, FormControlLabel} from '@material-ui/core';
-import {radioStyle} from './BasicForm.styles';
+import {cx} from 'emotion';
+import {inputStyle, inpuForSelectStyle, labelStyle} from './BasicForm.styles';
 import {paymentPeriods} from '../../helpers/types';
 
-interface RadioFieldProps {
-    onChange: (event: React.ChangeEvent<HTMLInputElement>, value: string) => void;
+interface SelectFieldProps {
+    label: string;
+    onChange: (name: string, value: string | number[]) => void;
     value: paymentPeriods;
 }
 
-export const RadioField: React.FC<RadioFieldProps> = ({onChange, value}) => {
+export const SelectField: React.FC<SelectFieldProps> = ({label, onChange, value}) => {
     return (
-        <RadioGroup className={radioStyle} aria-label="depositFrequency" name="depositFrequency" value={value} onChange={onChange}>
-            <FormControlLabel value={paymentPeriods.NULL} control={<Radio />} label="nic" />
-            <FormControlLabel value={paymentPeriods.MONTH} control={<Radio />} label="miesiąc" />
-            <FormControlLabel value={paymentPeriods.QUARTER} control={<Radio />} label="kwartał" />
-            <FormControlLabel value={paymentPeriods.HALF_YEAR} control={<Radio />} label="pół roku" />
-            <FormControlLabel value={paymentPeriods.YEAR} control={<Radio />} label="rok" />
-        </RadioGroup>
+        <div className={inputStyle}>
+            <label className={cx(labelStyle, inpuForSelectStyle)}>{label}</label>
+            <select value={value} onChange={e => onChange('depositFrequency', e.target.value)}>
+                <option value={paymentPeriods.NULL}>Nie, dziękuję</option>
+                <option value={paymentPeriods.MONTH}>Tak, co miesiąc</option>
+                <option value={paymentPeriods.QUARTER}>Tak, co kwartał</option>
+                <option value={paymentPeriods.HALF_YEAR}>Tak, co pół roku</option>
+                <option value={paymentPeriods.YEAR}>Tak, raz do roku</option>
+            </select>
+        </div>
     );
 };

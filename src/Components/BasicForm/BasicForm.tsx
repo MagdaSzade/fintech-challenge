@@ -1,101 +1,68 @@
 import React from 'react';
-import {Formik} from 'formik';
-import {RadioField} from './BasicFormRadioField';
-import {Slider, Input, Button} from '@material-ui/core';
+import {Formik, Form} from 'formik';
+import {SelectField} from './BasicFormRadioField';
+import {Input} from './BasicFormInput';
+import {Slider} from './BasicFormSlider';
+import {Button} from '@material-ui/core';
 import {basicInvestition} from '../../helpers/types';
 import {displayDuration, displayRateOfReturn, initialValues} from './BasicForm.helpers';
-import {formStyles, grid, labelStyle} from './BasicForm.styles';
+import {paymentPeriods} from '../../helpers/types';
+import {formStyles} from './BasicForm.styles';
 
 interface BasicFormProps {
     onSubmit: (data: basicInvestition) => void;
+    buttonDisplay?: string;
 }
 
-export const BasicForm: React.FC<BasicFormProps> = ({onSubmit}) => (
-    <Formik
-        initialValues={initialValues}
-        onSubmit={values => {
-            onSubmit(values);
-        }}
-    >
-        {({
-            values: {initialCapital, duration, depositFrequency, additionalContribution, returnRate},
-            handleChange,
-            setFieldValue,
-            handleSubmit,
-        }) => (
-            <form className={formStyles}>
-                <label className={labelStyle} htmlFor="initialCapital">
-                    Ile chciałbyś na początku zainwestować?
-                </label>
-                <div className={grid}>
+export const BasicForm: React.FC<BasicFormProps> = ({onSubmit, buttonDisplay = 'Przelicz'}) => {
+    return (
+        <Formik
+            initialValues={initialValues}
+            onSubmit={values => {
+                onSubmit(values);
+            }}
+        >
+            {({values: {initialCapital, duration, depositFrequency, additionalContribution, returnRate}, setFieldValue}) => (
+                <Form className={formStyles}>
                     <Input
-                        name="initialCapital"
-                        id="initialCapital"
-                        type="number"
+                        label={'Ile chcesz zainwestować na początek?'}
                         value={initialCapital}
-                        onChange={handleChange}
-                        inputProps={{min: '1000', max: '1000000', step: '100'}}
-                        fullWidth={true}
-                    />{' '}
-                    PLN
-                </div>
-                <label className={labelStyle} htmlFor="duration">
-                    Jak długo chcesz oszczędzać?
-                </label>
-                <div className={grid}>
+                        name={'initialCapital'}
+                        onChange={setFieldValue}
+                    />
                     <Slider
+                        label={'Jak długo chcesz oszczędzać?'}
                         name="duration"
-                        id="duration"
                         value={duration}
                         min={1}
                         max={120}
                         step={1}
-                        onChange={(e, value) => setFieldValue('duration', value)}
+                        onChange={setFieldValue}
+                        displayedValue={displayDuration(duration)}
                     />
-                    <div>{displayDuration(duration)}</div>
-                </div>
-                <label className={labelStyle}>Deklaruję, że co:</label>
-                <RadioField onChange={handleChange} value={depositFrequency} />
-                <label className={labelStyle} htmlFor="additionalContribution">
-                    będę dopłacać
-                </label>
-                <div className={grid}>
+                    <SelectField label="Czy chcesz dopłacać regularnie?" value={depositFrequency} onChange={setFieldValue} />
                     <Input
-                        name="additionalContribution"
-                        id="additionalContribution"
-                        type="number"
+                        label={'Jaką kwotę chcesz dopłacać?'}
                         value={additionalContribution}
-                        onChange={handleChange}
-                        inputProps={{min: '100', max: '1000000', step: '100'}}
-                        fullWidth={true}
-                    />{' '}
-                    PLN
-                </div>
-                <label className={labelStyle} htmlFor="returnRate">
-                    Jakiego zwrotu rocznego oczekujesz?
-                </label>
-                <div className={grid}>
+                        name="additionalContribution"
+                        onChange={setFieldValue}
+                        display={depositFrequency === paymentPeriods.NULL ? 'none' : 'block'}
+                    />
                     <Slider
+                        label={'Jakiego rocznego zwrotu oczekujesz?'}
                         name="returnRate"
-                        id="returnRate"
                         value={returnRate}
-                        min={1}
+                        min={0.5}
                         max={10}
                         step={0.1}
-                        onChange={(e, value) => setFieldValue('returnRate', value)}
+                        onChange={setFieldValue}
+                        displayedValue={displayRateOfReturn(returnRate)}
                     />
-                    <div>{displayRateOfReturn(returnRate)}</div>
-                </div>
-                <Button
-                    type="button"
-                    onClick={e => {
-                        handleSubmit();
-                    }}
-                    variant="contained"
-                >
-                    Przelicz
-                </Button>
-            </form>
-        )}
-    </Formik>
-);
+                    <Button type="submit" variant="contained">
+                        {buttonDisplay}
+                    </Button>
+                </Form>
+            )}
+        </Formik>
+    );
+};

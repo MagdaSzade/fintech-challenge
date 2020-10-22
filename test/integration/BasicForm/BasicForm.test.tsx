@@ -23,14 +23,14 @@ describe('<BasicForm>', () => {
     it('should call onSubmit with changedValues', async () => {
         const mockFn = jest.fn();
         const expectedValue = {
-            initialCapital: 1000030,
+            initialCapital: 0,
             duration: 60,
             depositFrequency: 'MONTH',
             additionalContribution: 100,
             returnRate: 5,
         };
         render(<BasicForm onSubmit={mockFn} />);
-        userEvent.type(screen.getByRole('spinbutton', {name: /ile chciałbyś na początku zainwestować\?/i}), '30');
+        userEvent.type(screen.getByRole('textbox', {name: /ile chcesz zainwestować na początek\?/i}), '{selectall}{backspace}');
         userEvent.click(screen.getByRole('button', {name: /przelicz/i}));
         await waitFor(() => {
             expect(mockFn).toHaveBeenCalledWith(expectedValue);
