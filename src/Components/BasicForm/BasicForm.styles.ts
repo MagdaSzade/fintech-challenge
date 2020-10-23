@@ -7,27 +7,19 @@ export const formStyles = css({
     },
 });
 
-export const grid = css({
-    width: '90%',
-    margin: '0 auto',
-    display: 'grid',
-    gridTemplateColumns: '3fr 2fr',
-    alignItems: 'center',
-});
-
-export const radioStyle = css({
-    width: '80%',
-    margin: '0.5rem auto !important',
-    display: 'grid !important',
-    gridTemplateColumns: '1fr 1fr',
-    justifyItems: 'left',
-    '.MuiFormControlLabel-root': {
-        margin: '0',
-        height: '2rem',
-    },
-});
-
 export const labelStyle = css({
     display: 'block',
-    paddingTop: '0.4rem',
+    paddingTop: '0.6rem',
+});
+
+export const inpuForSelectStyle = css({
+    paddingBottom: '0.3rem',
+});
+
+export const inputStyle = css({
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingBottom: '0.3rem',
 });

@@ -8,6 +8,6 @@ describe('Using Navigation Buttons', () => {
     it('should render investition page', () => {
         render(<App />, {wrapper: MemoryRouter});
         userEvent.click(screen.getByRole('link', {name: /zainwestuj/i}));
-        expect(screen.getByText('Ile chciałbyś na początku zainwestować?')).toBeInTheDocument();
+        expect(screen.getByText('Ile chcesz zainwestować na początek?')).toBeInTheDocument();
     });
 });
