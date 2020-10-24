@@ -1,6 +1,7 @@
 export enum ROUTES {
     HOME = '/',
-    INVESTMENT_FORM = '/investment-form',
-    INVESTITIONS_LIST = '/investitions',
+    INVESTMENT_FORM = '/investitions',
+    INVESTITIONS_LIST = '/investitions/buy',
+    PROJECTED_PROFIT = '/investitions/projected-profit',
     BASKET = '/basket',
 }
