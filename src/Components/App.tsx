@@ -7,12 +7,13 @@ import {InvestitionsContainer} from './InvestitionsContainer/InvestitionsContain
 import {BasketContainer} from './BasketContainer/BasketContainer';
 import {NotFoundPage} from './NotFoundPage/NotFoundPage';
 import {ROUTES} from '../helpers/routes';
+import {conteinerStyle, contentConteinerStyle} from './globalStyles';
 
 export const App = () => {
     return (
         <Router>
-            <div className="conteiner">
-                <div className="content-conteiner">
+            <div className={conteinerStyle}>
+                <div className={contentConteinerStyle}>
                     <Header />
                     <Switch>
                         <Route path={ROUTES.HOME} exact>

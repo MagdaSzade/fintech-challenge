@@ -1,5 +1,5 @@
 import React from 'react';
-import {DangerGraph} from './InvestitionSummaryDangerGraph';
+import {RiskGraph} from './InvestitionSummaryRiskGraph';
 import {DoughnutGraph} from './InvestitionSummaryDoughnutGraph';
 import {investitionSummaryStyle} from './InvestitionSummary.styles';
 interface InvestitionSummaryProps {
@@ -11,7 +11,7 @@ interface InvestitionSummaryProps {
 export const InvestitionSummary: React.FC<InvestitionSummaryProps> = ({dangerMark, total, capital}) => {
     return (
         <div className={investitionSummaryStyle}>
-            <DangerGraph dangerMark={dangerMark} />
+            <RiskGraph dangerMark={dangerMark} />
             <DoughnutGraph total={total} capital={capital} />
         </div>
     );

@@ -2,9 +2,11 @@ import React from 'react';
 import {BasicForm} from '../BasicForm/BasicForm';
 import {DisplayInvestition} from '../DisplayInvestition/DisplayInvestition';
 import {InvestitionSummary} from '../InvestitionSummary/InvestitionSummary';
-import {useBasicInvestReturnRate} from '../../hooks/investitions/useBasicInvestReturnRate';
-import {containerStyle, backgroundStyle, graphStyle, flex} from './FormContainer.styles';
 import {Button} from '@material-ui/core';
+import {useBasicInvestReturnRate} from '../../hooks/investitions/useBasicInvestReturnRate';
+import {containerStyle, graphStyle, flex} from './FormContainer.styles';
+import {componentBackgroundStyle} from '../globalStyles';
+import {cx} from 'emotion';
 
 export const FormContainer: React.FC = () => {
     const {
@@ -14,16 +16,16 @@ export const FormContainer: React.FC = () => {
 
     return (
         <div className={containerStyle}>
-            <div className={backgroundStyle}>
+            <div className={componentBackgroundStyle}>
                 <BasicForm onSubmit={setNewInvestistion} />
             </div>
-            <div className={`${backgroundStyle} ${flex}`}>
+            <div className={cx(componentBackgroundStyle, flex)}>
                 <InvestitionSummary total={total} capital={capital} dangerMark={riskFactory} />
-                <Button type="button" variant="contained">
+                <Button type="button" style={{textDecoration: 'underline'}}>
                     Przejdź do inwestycji
                 </Button>
             </div>
-            <div className={`${backgroundStyle} ${graphStyle}`}>
+            <div className={cx(componentBackgroundStyle, graphStyle)}>
                 <DisplayInvestition data={data} />
             </div>
         </div>

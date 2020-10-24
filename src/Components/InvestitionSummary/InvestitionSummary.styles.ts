@@ -25,3 +25,7 @@ export const textStyle = css({
     position: 'absolute',
     top: '75px',
 });
+
+export const pStyle = css({
+    fontSize: '1.2rem',
+});
