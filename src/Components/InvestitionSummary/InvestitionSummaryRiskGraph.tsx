@@ -3,11 +3,11 @@ import {Slider} from '@material-ui/core';
 import {marks} from './InvestitionSummary.helpers';
 import {dangerGraphStyle} from './InvestitionSummary.styles';
 
-interface DangerGraphProps {
+interface RiskGraphProps {
     dangerMark: number;
 }
 
-export const DangerGraph: React.FC<DangerGraphProps> = ({dangerMark}) => {
+export const RiskGraph: React.FC<RiskGraphProps> = ({dangerMark}) => {
     return (
         <div className={dangerGraphStyle}>
             <p>Poziom ryzyka dla twojej inwestycji wynosi:</p>

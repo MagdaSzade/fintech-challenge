@@ -1,20 +1,23 @@
 import {css} from 'emotion';
-import {cssColors} from '../../helpers/cssConsants';
 
 export const containerStyle = css({
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     gridGap: '0.5rem',
-    padding: '1rem',
-    margin: '0.5rem',
     justifyItems: 'center',
-});
-
-export const backgroundStyle = css({
-    width: '100%',
-    backgroundColor: cssColors.background,
-    borderRadius: '10px',
-    padding: '1rem',
+    width: '95%',
+    height: '86vh',
+    margin: '0 auto',
+    overflowY: 'auto',
+    overflowX: 'hidden',
+    '@media (max-width: 700px)': {
+        width: '100%',
+        height: '87vh',
+    },
+    '@media (max-width: 500px)': {
+        gridTemplateColumns: '1fr',
+        height: '88vh',
+    },
 });
 
 export const graphStyle = css({
@@ -23,6 +26,9 @@ export const graphStyle = css({
     alignItems: 'center',
     justifyContent: 'center',
     gridColumn: '1 / span 2',
+    '@media (max-width: 500px)': {
+        display: 'none',
+    },
 });
 
 export const flex = css({

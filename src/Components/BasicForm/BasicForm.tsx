@@ -58,7 +58,7 @@ export const BasicForm: React.FC<BasicFormProps> = ({onSubmit, buttonDisplay = '
                         onChange={setFieldValue}
                         displayedValue={displayRateOfReturn(returnRate)}
                     />
-                    <Button type="submit" variant="contained">
+                    <Button type="submit" style={{textDecoration: 'underline'}}>
                         {buttonDisplay}
                     </Button>
                 </Form>
