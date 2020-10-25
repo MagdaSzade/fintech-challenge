@@ -1,12 +1,12 @@
 import React from 'react';
-import './globalStyles';
-import {Header} from './Header/Header';
+import {Header} from '../Header/Header';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
-import {FormContainer} from './FormContainer/FormContainer';
-import {BasketContainer} from './BasketContainer/BasketContainer';
-import {NotFoundPage} from './NotFoundPage/NotFoundPage';
-import {ROUTES} from '../helpers/routes';
-import {conteinerStyle, contentConteinerStyle} from './globalStyles';
+import {FormContainer} from '../FormContainer/FormContainer';
+import {BasketContainer} from '../BasketContainer/BasketContainer';
+import {NotFoundPage} from '../NotFoundPage/NotFoundPage';
+import {ROUTES} from '../../helpers/routes';
+import '../globalStyles';
+import {conteinerStyle, contentConteinerStyle} from './App.styles';
 
 export const App = () => {
     return (
