@@ -3,7 +3,6 @@ import './globalStyles';
 import {Header} from './Header/Header';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import {FormContainer} from './FormContainer/FormContainer';
-import {InvestitionsContainer} from './InvestitionsContainer/InvestitionsContainer';
 import {BasketContainer} from './BasketContainer/BasketContainer';
 import {NotFoundPage} from './NotFoundPage/NotFoundPage';
 import {ROUTES} from '../helpers/routes';
@@ -17,10 +16,7 @@ export const App = () => {
                     <Header />
                     <Switch>
                         <Route path={ROUTES.HOME} exact>
-                            <Redirect to={ROUTES.INVESTMENT_FORM} />
-                        </Route>
-                        <Route path={ROUTES.INVESTITIONS_LIST}>
-                            <InvestitionsContainer />
+                            <Redirect to={ROUTES.PROJECTED_PROFIT} />
                         </Route>
                         <Route path={ROUTES.BASKET}>
                             <BasketContainer />

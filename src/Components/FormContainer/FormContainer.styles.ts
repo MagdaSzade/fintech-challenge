@@ -25,9 +25,15 @@ export const graphStyle = css({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gridColumn: '1 / span 2',
     '@media (max-width: 500px)': {
         display: 'none',
+    },
+});
+
+export const span2 = css({
+    gridColumn: '1 / span 2',
+    '@media (max-width: 500px)': {
+        gridColumn: '1',
     },
 });
 
