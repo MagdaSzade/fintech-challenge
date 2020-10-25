@@ -26,9 +26,9 @@ export const returnRate = ({
         deposits.push({month: i, depositValue, totalProfit: totalReturn});
     }
 
-    const riskFactory = riskFactoryValue(returnRate);
+    const riskFactor = riskFactoryValue(returnRate);
 
-    return {capital: depositValue, riskFactory, total: totalReturn, data: deposits};
+    return {capital: depositValue, riskFactor, total: totalReturn, data: deposits};
 };
 
 const depositFrequencyInMonths = (months: paymentPeriods): number => {

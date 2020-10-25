@@ -14,7 +14,7 @@ interface investitionTimeStamp {
 
 export interface basicInvestitionReturnRate {
     data: Array<investitionTimeStamp>;
-    riskFactory: number;
+    riskFactor: number;
     total: number;
     capital: number;
 }
