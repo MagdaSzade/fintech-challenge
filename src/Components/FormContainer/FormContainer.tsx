@@ -8,6 +8,7 @@ import {ListOfInvestitions} from '../ListOfInvestitions/ListOfInvestitions';
 import {Loader} from '../Loader/Loader';
 import {useBasicInvestReturnRate} from '../../hooks/investitions/useBasicInvestReturnRate';
 import {useFetchInvestitions} from '../../hooks/investitions/useFetchInvestitions';
+import {useBasket} from '../../hooks/investitions/useBasket';
 import {containerStyle, graphStyle, span2, flex} from './FormContainer.styles';
 import {componentBackgroundStyle} from '../globalStyles';
 import {cx} from 'emotion';
@@ -20,7 +21,13 @@ export const FormContainer: React.FC = () => {
 
     const {isFetching, isError, investitionsList, fetchInvestitions} = useFetchInvestitions();
 
-    const displayList = isError ? <p>Coś poszło nie tak...</p> : <ListOfInvestitions records={investitionsList} />;
+    const {basket, basketAction} = useBasket();
+
+    const displayList = isError ? (
+        <p>Coś poszło nie tak...</p>
+    ) : (
+        <ListOfInvestitions records={investitionsList} action={basketAction} basket={basket.content} />
+    );
 
     const listOfInvestitions = isFetching ? <Loader /> : <>{displayList}</>;
 

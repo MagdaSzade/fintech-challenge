@@ -1,14 +1,24 @@
 import React from 'react';
 import {investition} from '../../helpers/types';
+import {ActionInterface} from '../../hooks/investitions/useBasket';
 import {Record} from './ListOfInvestitionsRecord';
+import {Action} from '../Action/Action';
+import {recordContainerStyle} from './ListOfInvestitions.styles';
 
 interface ListOfInvestitionsProps {
     records: Array<investition>;
+    basket: Array<investition>;
+    action: React.Dispatch<ActionInterface>;
 }
 
-export const ListOfInvestitions: React.FC<ListOfInvestitionsProps> = ({records}) => {
+export const ListOfInvestitions: React.FC<ListOfInvestitionsProps> = ({records, action, basket}) => {
     const listOfRecords = records.map((investition, index) => {
-        return <Record data={investition} key={index} />;
+        return (
+            <div key={investition.id} className={recordContainerStyle}>
+                <Record data={investition} />
+                <Action data={investition} action={action} basket={basket} />
+            </div>
+        );
     });
 
     return <div>{listOfRecords}</div>;
