@@ -21,7 +21,7 @@ export const navigationButtons: Array<navButton> = [
     },
     {
         name: 'home',
-        route: ROUTES.HOME,
+        route: ROUTES.PROJECTED_PROFIT,
         display: RiHome4Fill,
     },
 ];

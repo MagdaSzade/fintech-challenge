@@ -1,11 +1,12 @@
 import {useReducer} from 'react';
 import {investition} from '../../helpers/types';
-import {findItemById} from '../../helpers/basket';
+import {findItemById, basketReturnRate} from '../../helpers/basket';
 
-interface BasketInterface {
+export interface BasketInterface {
     content: Array<investition>;
     totalCapital: number;
-    totalProfit: number;
+    total: number;
+    riskFactor: number;
 }
 
 export interface ActionInterface {
@@ -20,32 +21,34 @@ interface ReducerInterface {
 const initialState: BasketInterface = {
     content: [],
     totalCapital: 0,
-    totalProfit: 0,
+    total: 0,
+    riskFactor: 0,
 };
 
 const reducer: ReducerInterface = (state, action) => {
+    let content = [...state.content];
     switch (action.type) {
         case 'add':
-            const addReturnState = {
-                content: [...state.content, action.payload],
-                totalCapital: state.totalCapital,
-                totalProfit: state.totalProfit,
-            };
-            return addReturnState;
+            content = [...state.content, action.payload];
+            break;
         case 'remove':
-            const removeReturnState = {
-                content: [...state.content],
-                totalCapital: state.totalCapital,
-                totalProfit: state.totalProfit,
-            };
             const index = findItemById(action.payload.id, state.content);
-            removeReturnState.content.splice(index, 1);
-            return removeReturnState;
+            content.splice(index, 1);
+            break;
         case 'clear':
             return initialState;
         default:
             return state;
     }
+
+    const {total, capital, riskFactor} = basketReturnRate(content);
+
+    return {
+        content,
+        totalCapital: capital,
+        total,
+        riskFactor,
+    };
 };
 
 export const useBasket = () => {

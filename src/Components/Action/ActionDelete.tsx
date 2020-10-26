@@ -17,7 +17,7 @@ export const Delete: React.FC<DeleteInterface> = ({action, data, amount}) => {
             <Button onClick={e => action({type: 'add', payload: data})}>
                 <CgAdd />
             </Button>
-            <p>W koszyku: {amount}</p>
+            <p>Koszyk: {amount}</p>
             <Button onClick={e => action({type: 'remove', payload: data})}>
                 <CgRemove />
             </Button>

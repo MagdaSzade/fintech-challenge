@@ -2,7 +2,6 @@ import React from 'react';
 import {Header} from '../Header/Header';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import {FormContainer} from '../FormContainer/FormContainer';
-import {BasketContainer} from '../BasketContainer/BasketContainer';
 import {NotFoundPage} from '../NotFoundPage/NotFoundPage';
 import {ROUTES} from '../../helpers/routes';
 import '../globalStyles';
@@ -17,9 +16,6 @@ export const App = () => {
                     <Switch>
                         <Route path={ROUTES.HOME} exact>
                             <Redirect to={ROUTES.PROJECTED_PROFIT} />
-                        </Route>
-                        <Route path={ROUTES.BASKET}>
-                            <BasketContainer />
                         </Route>
                         <Route path={ROUTES.INVESTMENT_FORM}>
                             <FormContainer />

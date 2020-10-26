@@ -1,6 +1,7 @@
 import {css} from 'emotion';
 
 export const containerStyle = css({
+    position: 'relative',
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     gridGap: '0.5rem',
