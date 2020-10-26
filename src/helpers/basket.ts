@@ -19,7 +19,6 @@ export const uniqueRecords = (basket: Array<investition>): Array<investition> =>
     const returnArray: Array<investition> = [];
 
     basket.forEach(item => {
-        console.log(!findItemById(item.id, returnArray));
         if (findItemById(item.id, returnArray) === -1) {
             returnArray.push(item);
         }
