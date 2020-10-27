@@ -1,4 +1,4 @@
-import {basicInvestition, basicInvestitionReturnRate, paymentPeriods} from './types';
+import {BasicInvestition, BasicInvestitionReturnRate, PAYMENT_PERIODS} from './types';
 
 export const returnRate = ({
     initialCapital,
@@ -6,7 +6,7 @@ export const returnRate = ({
     additionalContribution,
     returnRate,
     duration,
-}: basicInvestition): basicInvestitionReturnRate => {
+}: BasicInvestition): BasicInvestitionReturnRate => {
     let depositValue = initialCapital;
     let profitValue = 0;
     let totalReturn = initialCapital;
@@ -31,17 +31,17 @@ export const returnRate = ({
     return {capital: depositValue, riskFactor, total: totalReturn, data: deposits};
 };
 
-const depositFrequencyInMonths = (months: paymentPeriods): number => {
+const depositFrequencyInMonths = (months: PAYMENT_PERIODS): number => {
     switch (months) {
-        case paymentPeriods.NULL:
+        case PAYMENT_PERIODS.NULL:
             return 0;
-        case paymentPeriods.MONTH:
+        case PAYMENT_PERIODS.MONTH:
             return 1;
-        case paymentPeriods.QUARTER:
+        case PAYMENT_PERIODS.QUARTER:
             return 3;
-        case paymentPeriods.HALF_YEAR:
+        case PAYMENT_PERIODS.HALF_YEAR:
             return 6;
-        case paymentPeriods.YEAR:
+        case PAYMENT_PERIODS.YEAR:
             return 12;
     }
 };

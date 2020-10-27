@@ -1,9 +1,9 @@
 import {useReducer} from 'react';
-import {investition} from '../../helpers/types';
-import {findItemById, basketReturnRate} from '../../helpers/basket';
+import {Investition} from '../../helpers/types';
+import {findItemIndexById, basketReturnRate} from '../../helpers/basket';
 
 export interface BasketInterface {
-    content: Array<investition>;
+    investitionsList: Array<Investition>;
     totalCapital: number;
     total: number;
     riskFactor: number;
@@ -11,7 +11,7 @@ export interface BasketInterface {
 
 export interface ActionInterface {
     type: 'add' | 'remove' | 'clear';
-    payload: investition;
+    payload?: Investition;
 }
 
 interface ReducerInterface {
@@ -19,21 +19,27 @@ interface ReducerInterface {
 }
 
 const initialState: BasketInterface = {
-    content: [],
+    investitionsList: [],
     totalCapital: 0,
     total: 0,
     riskFactor: 0,
 };
 
 const reducer: ReducerInterface = (state, action) => {
-    let content = [...state.content];
+    let investitionsList = [...state.investitionsList];
     switch (action.type) {
         case 'add':
-            content = [...state.content, action.payload];
+            if (action.payload) {
+                investitionsList = [...state.investitionsList, action.payload];
+            }
             break;
         case 'remove':
-            const index = findItemById(action.payload.id, state.content);
-            content.splice(index, 1);
+            if (action.payload) {
+                const index = findItemIndexById(action.payload.id, state.investitionsList);
+                if (index >= 0) {
+                    investitionsList.splice(index, 1);
+                }
+            }
             break;
         case 'clear':
             return initialState;
@@ -41,10 +47,10 @@ const reducer: ReducerInterface = (state, action) => {
             return state;
     }
 
-    const {total, capital, riskFactor} = basketReturnRate(content);
+    const {total, capital, riskFactor} = basketReturnRate(investitionsList);
 
     return {
-        content,
+        investitionsList,
         totalCapital: capital,
         total,
         riskFactor,

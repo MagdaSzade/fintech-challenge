@@ -1,5 +1,5 @@
 import React from 'react';
-import {cssColors} from '../../helpers/cssConsants';
+import {CSS_COLORS} from '../../helpers/cssConsants';
 import {AreaChart, Area, XAxis, YAxis, Tooltip} from 'recharts';
 import {chartStyle} from './DisplayInvestition.styles';
 
@@ -17,19 +17,19 @@ export const DisplayInvestition: React.FC<DisplayInvestitionProps> = ({data}) =>
             <AreaChart width={500} height={250} data={data} margin={{top: 10, right: 30, left: 0, bottom: 0}}>
                 <defs>
                     <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor={cssColors.capital} stopOpacity={0.8} />
-                        <stop offset="95%" stopColor={cssColors.capital} stopOpacity={0} />
+                        <stop offset="5%" stopColor={CSS_COLORS.CAPITAL} stopOpacity={0.8} />
+                        <stop offset="95%" stopColor={CSS_COLORS.CAPITAL} stopOpacity={0} />
                     </linearGradient>
                     <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor={cssColors.profit} stopOpacity={0.8} />
-                        <stop offset="95%" stopColor={cssColors.profit} stopOpacity={0} />
+                        <stop offset="5%" stopColor={CSS_COLORS.PROFIT} stopOpacity={0.8} />
+                        <stop offset="95%" stopColor={CSS_COLORS.PROFIT} stopOpacity={0} />
                     </linearGradient>
                 </defs>
-                <XAxis interval="preserveEnd" dataKey="name" stroke={cssColors.scale} />
+                <XAxis interval="preserveEnd" dataKey="name" stroke={CSS_COLORS.SCALE} />
                 <YAxis
                     mirror={true}
                     tickFormatter={tick => displayAsCurrency(Math.ceil(tick / 1000) * 1000)}
-                    stroke={cssColors.scale}
+                    stroke={CSS_COLORS.SCALE}
                     domain={[data[0].depositValue - 1000, data[data.length - 1].totalProfit + 1000]}
                 />
                 <Tooltip formatter={displayAsCurrency} />
@@ -37,7 +37,7 @@ export const DisplayInvestition: React.FC<DisplayInvestitionProps> = ({data}) =>
                     type="monotone"
                     name="wartość inwestycji"
                     dataKey="totalProfit"
-                    stroke={cssColors.profit}
+                    stroke={CSS_COLORS.PROFIT}
                     fillOpacity={1}
                     fill="url(#colorPv)"
                 />
@@ -45,7 +45,7 @@ export const DisplayInvestition: React.FC<DisplayInvestitionProps> = ({data}) =>
                     type="monotone"
                     name="wkład własny"
                     dataKey="depositValue"
-                    stroke={cssColors.capital}
+                    stroke={CSS_COLORS.PROFIT}
                     fillOpacity={1}
                     fill="url(#colorUv)"
                 />

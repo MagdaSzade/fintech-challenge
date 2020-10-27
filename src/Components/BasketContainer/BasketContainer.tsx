@@ -13,16 +13,16 @@ interface BasketContainerInterface {
 }
 
 export const BasketContainer: React.FC<BasketContainerInterface> = ({basket, action}) => {
-    const records = uniqueRecords(basket.content);
+    const records = uniqueRecords(basket.investitionsList);
 
-    const style = basket.content.length === 0 ? {display: 'none'} : {};
+    const style = basket.investitionsList.length === 0 ? {display: 'none'} : {};
 
     return (
         <div className={cx(componentBackgroundStyle, coverStyle)}>
             <div className={basketContainerStyle} style={style}>
                 <p>Dla tego koszyka:</p>
                 <InvestitionSummary riskFactor={basket.riskFactor} total={basket.total} capital={basket.totalCapital} />
-                <ListOfInvestitions records={records} basket={basket.content} action={action} />
+                <ListOfInvestitions records={records} basket={basket.investitionsList} action={action} />
             </div>
         </div>
     );

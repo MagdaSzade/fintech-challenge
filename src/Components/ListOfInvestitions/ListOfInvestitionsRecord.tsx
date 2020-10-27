@@ -1,9 +1,9 @@
 import React from 'react';
-import {investition} from '../../helpers/types';
+import {Investition} from '../../helpers/types';
 import {recordStyle, logoStyle} from './ListOfInvestitions.styles';
 
 interface RecordProps {
-    data: investition;
+    data: Investition;
 }
 
 export const Record: React.FC<RecordProps> = ({data}) => {

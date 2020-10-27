@@ -1,5 +1,5 @@
 import {css, injectGlobal} from 'emotion';
-import {cssColors} from '../helpers/cssConsants';
+import {CSS_COLORS} from '../helpers/cssConsants';
 
 injectGlobal`
   * {
@@ -9,12 +9,12 @@ injectGlobal`
     letter-spacing: 0.07em;
     box-sizing: border-box;
     font-size: 12px;
-    color: ${cssColors.details};
+    color: ${CSS_COLORS.DETAILS};
   }
 `;
 
 export const componentBackgroundStyle = css({
-    backgroundColor: cssColors.COMPONENT_BACKGROUND,
+    backgroundColor: CSS_COLORS.COMPONENT_BACKGROUND,
     borderRadius: '10px',
     width: '100%',
     display: 'flex',

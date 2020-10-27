@@ -1,32 +1,32 @@
-export interface basicInvestition {
+export interface BasicInvestition {
     initialCapital: number;
-    depositFrequency: paymentPeriods;
+    depositFrequency: PAYMENT_PERIODS;
     additionalContribution: number;
     returnRate: number;
     duration: number;
 }
 
-interface investitionTimeStamp {
+export interface InvestitionTimeStamp {
     month: number;
     depositValue: number;
     totalProfit: number;
 }
 
-export interface basicInvestitionReturnRate {
-    data: Array<investitionTimeStamp>;
+export interface BasicInvestitionReturnRate {
+    data: Array<InvestitionTimeStamp>;
     riskFactor: number;
     total: number;
     capital: number;
 }
 
-export interface investition extends basicInvestition {
+export interface Investition extends BasicInvestition {
     companyName: string;
     id: string;
     logoUrl: string;
     type: string;
 }
 
-export enum paymentPeriods {
+export enum PAYMENT_PERIODS {
     NULL = 'NULL',
     MONTH = 'MONTH',
     QUARTER = 'QUARTER',
