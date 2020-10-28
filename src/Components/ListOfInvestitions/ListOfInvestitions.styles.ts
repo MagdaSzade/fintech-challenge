@@ -1,5 +1,5 @@
 import {css} from 'emotion';
-import {cssColors} from '../../helpers/cssConsants';
+import {CSS_COLORS} from '../../helpers/cssConsants';
 
 export const recordStyle = css({
     margin: '0.3rem auto',
@@ -14,7 +14,7 @@ export const logoStyle = css({
     width: '30px',
     height: '30px',
     borderRadius: '50%',
-    border: `1px solid ${cssColors.details}`,
+    border: `1px solid ${CSS_COLORS.DETAILS}`,
     marginRight: '0.5rem',
 });
 
@@ -26,5 +26,5 @@ export const recordContainerStyle = css({
     alignItems: 'center',
     justifyItems: 'center',
     borderRadius: '5px',
-    border: `1px solid ${cssColors.details}`,
+    border: `1px solid ${CSS_COLORS.DETAILS}`,
 });

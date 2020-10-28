@@ -13,7 +13,7 @@ import {useBasket} from '../../hooks/investitions/useBasket';
 import {containerStyle, graphStyle, span2, flex} from './FormContainer.styles';
 import {componentBackgroundStyle} from '../globalStyles';
 import {cx} from 'emotion';
-import {basicInvestition} from '../../helpers/types';
+import {BasicInvestition} from '../../helpers/types';
 
 export const FormContainer: React.FC = () => {
     const {
@@ -28,18 +28,18 @@ export const FormContainer: React.FC = () => {
     const displayList = isError ? (
         <p>Coś poszło nie tak...</p>
     ) : (
-        <ListOfInvestitions records={investitionsList} action={basketAction} basket={basket.content} />
+        <ListOfInvestitions records={investitionsList} action={basketAction} basket={basket.investitionsList} />
     );
 
     const listOfInvestitions = isFetching ? <Loader /> : <>{displayList}</>;
 
-    const onSubmit = (investition: basicInvestition) => {
+    const onSubmit = (investition: BasicInvestition) => {
         setNewInvestistion(investition);
         fetchInvestitions(investition);
     };
 
     const displayResult =
-        basket.content.length === 0 ? (
+        basket.investitionsList.length === 0 ? (
             <p>dodaj inwestycje do koszyka</p>
         ) : (
             <InvestitionSummary riskFactor={basket.riskFactor} total={basket.total} capital={basket.totalCapital} />

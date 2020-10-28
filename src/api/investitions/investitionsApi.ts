@@ -1,7 +1,7 @@
 import {backend} from '../rest/backend';
-import {basicInvestition} from '../../helpers/types';
+import {BasicInvestition} from '../../helpers/types';
 
-export const getInvestitions = (data: basicInvestition) => {
+export const getInvestitions = (data: BasicInvestition) => {
     return backend.get('/investments', {
         params: {
             ...data,

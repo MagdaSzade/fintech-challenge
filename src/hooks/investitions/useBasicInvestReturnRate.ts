@@ -1,12 +1,12 @@
 import {useState} from 'react';
-import {basicInvestition, basicInvestitionReturnRate} from '../../helpers/types';
+import {BasicInvestition, BasicInvestitionReturnRate} from '../../helpers/types';
 import {initialValues} from '../../Components/BasicForm/BasicForm.helpers';
 import {returnRate} from '../../helpers/returnRateOFBasicInvest';
 
 export const useBasicInvestReturnRate = () => {
-    const [investitionRetunData, setInvestition] = useState<basicInvestitionReturnRate>(returnRate(initialValues));
+    const [investitionRetunData, setInvestition] = useState<BasicInvestitionReturnRate>(returnRate(initialValues));
 
-    const setNewInvestistion = (data: basicInvestition): void => {
+    const setNewInvestistion = (data: BasicInvestition): void => {
         setInvestition(returnRate(data));
     };
 

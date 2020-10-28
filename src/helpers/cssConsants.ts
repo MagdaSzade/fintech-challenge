@@ -1,10 +1,10 @@
-export enum cssColors {
-    details = '#210B2C',
-    hover = '#16F4D0',
-    background = 'red',
-    capital = 'green',
-    profit = 'red',
-    scale = 'black',
+export enum CSS_COLORS {
+    DETAILS = '#210B2C',
+    HOVER = '#16F4D0',
+    BACKGROUND = 'red',
+    CAPITAL = 'green',
+    PROFIT = 'red',
+    SCALE = 'black',
     MAIN_BACKGROUND = '#210B2C',
     COMPONENT_BACKGROUND = '#fffcfe',
 }

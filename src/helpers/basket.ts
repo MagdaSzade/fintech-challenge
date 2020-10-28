@@ -1,11 +1,11 @@
-import {investition} from './types';
+import {Investition} from './types';
 import {returnRate} from './returnRateOFBasicInvest';
 
-export const findItemById = (id: string, basket: Array<investition>): number => {
+export const findItemIndexById = (id: string, basket: Array<Investition>): number => {
     return basket.findIndex(item => item.id === id);
 };
 
-export const findAll = (id: string, basket: Array<investition>): number => {
+export const findAll = (id: string, basket: Array<Investition>): number => {
     return basket.reduce((amount, currentItem): number => {
         if (currentItem.id === id) {
             return ++amount;
@@ -15,11 +15,11 @@ export const findAll = (id: string, basket: Array<investition>): number => {
     }, 0);
 };
 
-export const uniqueRecords = (basket: Array<investition>): Array<investition> => {
-    const returnArray: Array<investition> = [];
+export const uniqueRecords = (basket: Array<Investition>): Array<Investition> => {
+    const returnArray: Array<Investition> = [];
 
     basket.forEach(item => {
-        if (findItemById(item.id, returnArray) === -1) {
+        if (findItemIndexById(item.id, returnArray) === -1) {
             returnArray.push(item);
         }
     });
@@ -27,7 +27,7 @@ export const uniqueRecords = (basket: Array<investition>): Array<investition> =>
     return returnArray;
 };
 
-export const basketReturnRate = (basket: Array<investition>) => {
+export const basketReturnRate = (basket: Array<Investition>) => {
     const listOfReturnRates = basket.map(investition => {
         return returnRate(investition);
     });

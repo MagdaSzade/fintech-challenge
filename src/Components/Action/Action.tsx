@@ -1,13 +1,13 @@
 import React from 'react';
 import {Buy} from './ActionBuy';
-import {investition} from '../../helpers/types';
+import {Investition} from '../../helpers/types';
 import {ActionInterface} from '../../hooks/investitions/useBasket';
 import {Delete} from './ActionDelete';
 import {findAll} from '../../helpers/basket';
 
 interface ActionComponentInterface {
-    data: investition;
-    basket: Array<investition>;
+    data: Investition;
+    basket: Array<Investition>;
     action: React.Dispatch<ActionInterface>;
 }
 

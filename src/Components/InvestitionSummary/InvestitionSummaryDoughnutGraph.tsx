@@ -1,6 +1,6 @@
 import React from 'react';
 import {PieChart, Pie, Cell} from 'recharts';
-import {cssColors} from '../../helpers/cssConsants';
+import {CSS_COLORS} from '../../helpers/cssConsants';
 import {doughnutGraphStyle, textStyle, graphStyle, pStyle} from './InvestitionSummary.styles';
 
 interface DoughnutGraphProps {
@@ -32,8 +32,8 @@ export const DoughnutGraph: React.FC<DoughnutGraphProps> = ({total, capital}) =>
             </div>
             <PieChart width={200} height={200} className={graphStyle}>
                 <Pie data={data} dataKey="value" innerRadius={80} outerRadius={100}>
-                    <Cell key={data[0].name} fill={cssColors.capital} />
-                    <Cell key={data[1].name} fill={cssColors.profit} />
+                    <Cell key={data[0].name} fill={CSS_COLORS.CAPITAL} />
+                    <Cell key={data[1].name} fill={CSS_COLORS.PROFIT} />
                 </Pie>
             </PieChart>
         </div>

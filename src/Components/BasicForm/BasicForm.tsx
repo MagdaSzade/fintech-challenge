@@ -4,13 +4,12 @@ import {SelectField} from './BasicFormRadioField';
 import {Input} from './BasicFormInput';
 import {Slider} from './BasicFormSlider';
 import {Button} from '@material-ui/core';
-import {basicInvestition} from '../../helpers/types';
+import {BasicInvestition, PAYMENT_PERIODS} from '../../helpers/types';
 import {displayDuration, displayRateOfReturn, initialValues} from './BasicForm.helpers';
-import {paymentPeriods} from '../../helpers/types';
 import {formStyles} from './BasicForm.styles';
 
 interface BasicFormProps {
-    onSubmit: (data: basicInvestition) => void;
+    onSubmit: (data: BasicInvestition) => void;
     buttonDisplay?: string;
 }
 
@@ -46,7 +45,7 @@ export const BasicForm: React.FC<BasicFormProps> = ({onSubmit, buttonDisplay = '
                         value={additionalContribution}
                         name="additionalContribution"
                         onChange={setFieldValue}
-                        display={depositFrequency === paymentPeriods.NULL ? 'none' : 'block'}
+                        display={depositFrequency === PAYMENT_PERIODS.NULL ? 'none' : 'block'}
                     />
                     <Slider
                         label={'Jakiego rocznego zwrotu oczekujesz?'}

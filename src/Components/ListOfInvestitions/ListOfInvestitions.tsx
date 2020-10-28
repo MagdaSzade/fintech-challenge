@@ -1,13 +1,13 @@
 import React from 'react';
-import {investition} from '../../helpers/types';
+import {Investition} from '../../helpers/types';
 import {ActionInterface} from '../../hooks/investitions/useBasket';
 import {Record} from './ListOfInvestitionsRecord';
 import {Action} from '../Action/Action';
 import {recordContainerStyle} from './ListOfInvestitions.styles';
 
 interface ListOfInvestitionsProps {
-    records: Array<investition>;
-    basket: Array<investition>;
+    records: Array<Investition>;
+    basket: Array<Investition>;
     action: React.Dispatch<ActionInterface>;
 }
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import {Button} from '@material-ui/core';
-import {investition} from '../../helpers/types';
+import {Investition} from '../../helpers/types';
 import {ActionInterface} from '../../hooks/investitions/useBasket';
 
 interface BuyInterface {
     action: React.Dispatch<ActionInterface>;
-    data: investition;
+    data: Investition;
 }
 
 export const Buy: React.FC<BuyInterface> = ({action, data}) => {

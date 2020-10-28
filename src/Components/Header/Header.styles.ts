@@ -1,9 +1,9 @@
 import {css} from 'emotion';
-import {cssColors} from '../../helpers/cssConsants';
+import {CSS_COLORS} from '../../helpers/cssConsants';
 
 export const headerStyle = css({
     padding: '2vh 2rem',
-    color: cssColors.details,
+    color: CSS_COLORS.DETAILS,
     display: 'flex',
     justifyContent: 'space-between',
     width: '95%',
