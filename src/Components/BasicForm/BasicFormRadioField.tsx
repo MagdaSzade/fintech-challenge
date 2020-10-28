@@ -13,7 +13,7 @@ export const SelectField: React.FC<SelectFieldProps> = ({label, onChange, value}
     return (
         <div className={inputStyle}>
             <label className={cx(labelStyle, inpuForSelectStyle)}>{label}</label>
-            <select value={value} onChange={e => onChange('depositFrequency', e.target.value)}>
+            <select id="paymentPeriod" value={value} onChange={e => onChange('depositFrequency', e.target.value)}>
                 <option value={PAYMENT_PERIODS.NULL}>Nie, dziękuję</option>
                 <option value={PAYMENT_PERIODS.MONTH}>Tak, co miesiąc</option>
                 <option value={PAYMENT_PERIODS.QUARTER}>Tak, co kwartał</option>

@@ -2,7 +2,7 @@ import React from 'react';
 import {Investition} from '../../helpers/types';
 import {ActionInterface} from '../../hooks/investitions/useBasket';
 import {Record} from './ListOfInvestitionsRecord';
-import {Action} from '../Action/Action';
+import {Action} from './ListOfInvestitionAction';
 import {recordContainerStyle} from './ListOfInvestitions.styles';
 
 interface ListOfInvestitionsProps {

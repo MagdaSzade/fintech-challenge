@@ -20,6 +20,7 @@ export const Slider: React.FC<SliderProps> = ({label, name, value, min, max, ste
                 {label}
             </label>
             <MaterialSlider
+                id={name}
                 name={name}
                 value={value}
                 min={min}
