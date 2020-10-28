@@ -28,3 +28,10 @@ export const recordContainerStyle = css({
     borderRadius: '5px',
     border: `1px solid ${CSS_COLORS.DETAILS}`,
 });
+
+export const deleteStyle = css({
+    width: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+});

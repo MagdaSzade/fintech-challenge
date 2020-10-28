@@ -25,3 +25,12 @@ export const logoPStyle = css({
         fontSize: '0.8rem',
     },
 });
+
+export const container = css({
+    display: 'flex',
+    alignItems: 'center',
+});
+
+export const buttonStyle = css({
+    padding: '0.2rem',
+});
