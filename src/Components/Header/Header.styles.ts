@@ -8,6 +8,7 @@ export const headerStyle = css({
     justifyContent: 'space-between',
     width: '95%',
     height: '8vh',
+    minHeight: '35px',
     margin: '1vh auto',
     '@media (max-width: 700px)': {
         width: '100%',
@@ -32,5 +33,5 @@ export const container = css({
 });
 
 export const buttonStyle = css({
-    padding: '0.2rem',
+    padding: '0.4rem',
 });

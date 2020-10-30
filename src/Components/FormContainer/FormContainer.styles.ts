@@ -17,6 +17,7 @@ export const containerStyle = css({
     },
     '@media (max-width: 500px)': {
         gridTemplateColumns: '1fr',
+        gridTemplateRows: '350px auto',
         height: '88vh',
     },
 });

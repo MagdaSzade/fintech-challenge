@@ -5,7 +5,7 @@ import {logoStyle, logoPStyle} from './Header.styles';
 export const Logo = () => {
     return (
         <div className={logoStyle}>
-            <GiBearHead size={45} />
+            <GiBearHead size="30px" />
             <p className={logoPStyle}>Inwestuj z CareBear</p>
         </div>
     );

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Investition} from '../../helpers/types';
 import {recordStyle, logoStyle} from './ListOfInvestitions.styles';
+import {displayFrequency} from './ListOfInvestitions.helpers';
 
 interface RecordProps {
     data: Investition;
@@ -29,10 +30,7 @@ export const Record: React.FC<RecordProps> = ({data}) => {
                 <p>Czas: {data.duration} miesięcy</p>
             </div>
             <div>
-                <p>
-                    {data.depositFrequency} wpłata{' '}
-                    {data.additionalContribution.toLocaleString('pl-PL', {style: 'currency', currency: 'PLN'})}
-                </p>
+                <p>{displayFrequency(data.depositFrequency, data.additionalContribution)}</p>
             </div>
         </div>
     );

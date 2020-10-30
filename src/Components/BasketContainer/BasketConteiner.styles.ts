@@ -2,6 +2,7 @@ import {css} from 'emotion';
 
 export const basketContainerStyle = css({
     position: 'absolute',
+    width: '100%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
