@@ -12,6 +12,7 @@ interface ListOfInvestitionsProps {
 }
 
 export const ListOfInvestitions: React.FC<ListOfInvestitionsProps> = ({records, action, basket}) => {
+    const style = records.length !== 0 ? {display: 'none'} : {};
     const listOfRecords = records.map((investition, index) => {
         return (
             <div key={investition.id} className={recordContainerStyle}>
@@ -21,5 +22,10 @@ export const ListOfInvestitions: React.FC<ListOfInvestitionsProps> = ({records, 
         );
     });
 
-    return <div>{listOfRecords}</div>;
+    return (
+        <div>
+            <p style={style}>Żadne inwestycje nie pasują do podanych kryteriów</p>
+            {listOfRecords}
+        </div>
+    );
 };

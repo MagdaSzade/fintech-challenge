@@ -2,7 +2,14 @@ import {useCallback, useState} from 'react';
 import {getInvestitions} from '../../api/investitions/investitionsApi';
 import {Investition, BasicInvestition} from '../../helpers/types';
 
-export const useFetchInvestitions = () => {
+interface ReturnType {
+    isFetching: boolean;
+    isError: boolean;
+    investitionsList: Array<Investition>;
+    fetchInvestitions: (data: BasicInvestition) => Promise<void>;
+}
+
+export const useFetchInvestitions = (): ReturnType => {
     const [isFetching, setIsFetching] = useState<boolean>(false);
     const [isError, setIsError] = useState<boolean>(false);
     const [investitionsList, setInvestitionList] = useState<Array<Investition>>([] as Array<Investition>);
@@ -14,6 +21,7 @@ export const useFetchInvestitions = () => {
             setInvestitionList(investitions.data);
         } catch {
             setIsError(true);
+            setInvestitionList([]);
         } finally {
             setIsFetching(false);
         }

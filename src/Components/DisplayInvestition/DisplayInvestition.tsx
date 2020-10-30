@@ -30,7 +30,7 @@ export const DisplayInvestition: React.FC<DisplayInvestitionProps> = ({data}) =>
                     mirror={true}
                     tickFormatter={tick => displayAsCurrency(Math.ceil(tick / 1000) * 1000)}
                     stroke={CSS_COLORS.SCALE}
-                    domain={[data[0].depositValue - 1000, data[data.length - 1].totalProfit + 1000]}
+                    domain={[data[0].depositValue / 2, data[data.length - 1].totalProfit + 1000]}
                 />
                 <Tooltip formatter={displayAsCurrency} />
                 <Area

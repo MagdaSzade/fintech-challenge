@@ -14,12 +14,12 @@ export const NavBar: React.FC = () => {
             </div>
             <div className={buttonStyle}>
                 <NavLink id="basket" to={ROUTES.BASKET}>
-                    <RiShoppingBasketLine />
+                    <RiShoppingBasketLine size="20px" />
                 </NavLink>
             </div>
             <div className={buttonStyle}>
                 <NavLink id="home" to={ROUTES.PROJECTED_PROFIT}>
-                    <RiHome4Fill />
+                    <RiHome4Fill size="20px" />
                 </NavLink>
             </div>
         </div>

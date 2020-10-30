@@ -17,6 +17,9 @@ export const App = () => {
                         <Route path={ROUTES.HOME} exact>
                             <Redirect to={ROUTES.PROJECTED_PROFIT} />
                         </Route>
+                        <Route path={ROUTES.INVESTMENT_FORM} exact>
+                            <Redirect to={ROUTES.PROJECTED_PROFIT} />
+                        </Route>
                         <Route path={ROUTES.INVESTMENT_FORM}>
                             <FormContainer />
                         </Route>

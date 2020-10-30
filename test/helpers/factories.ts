@@ -20,8 +20,8 @@ export const basicInvestitionReturnRateFactory = Factory.Sync.makeFactory<BasicI
 export const investitionsFactory = Factory.Sync.makeFactory<Investition>({
     id: Factory.each(i => i.toString()),
     companyName: 'NAME',
-    initialCapital: Factory.each(i => i * 1000),
-    additionalContribution: Factory.each(i => i * 100),
+    initialCapital: 10000,
+    additionalContribution: 100,
     logoUrl: '/img/img.png',
     returnRate: 1,
     duration: 10,
