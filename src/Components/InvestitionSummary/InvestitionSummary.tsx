@@ -2,6 +2,7 @@ import React from 'react';
 import {RiskGraph} from './InvestitionSummaryRiskGraph';
 import {DoughnutGraph} from './InvestitionSummaryDoughnutGraph';
 import {investitionSummaryStyle} from './InvestitionSummary.styles';
+
 interface InvestitionSummaryProps {
     riskFactor: number;
     total: number;

@@ -7,7 +7,7 @@ export const displayFrequency = (freq: PAYMENT_PERIODS, add: number): string => 
         case PAYMENT_PERIODS.NULL:
             return 'Brak dodatkowych wpłat';
         case PAYMENT_PERIODS.MONTH:
-            return `Misięczna ${additionalCont}`;
+            return `Miesięczna ${additionalCont}`;
         case PAYMENT_PERIODS.QUARTER:
             return `Kwartalna ${additionalCont}`;
         case PAYMENT_PERIODS.HALF_YEAR:

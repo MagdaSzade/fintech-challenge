@@ -19,11 +19,11 @@ export const Action: React.FC<ActionComponentInterface> = ({data, basket, action
     const activeInvestition = () => {
         return (
             <div className={deleteStyle}>
-                <Button id={`${data.id}add`} onClick={e => action({type: 'add', payload: data})}>
+                <Button data-testid={'add'} id={`${data.id}add`} onClick={e => action({type: 'add', payload: data})}>
                     <CgAdd size="20" />
                 </Button>
                 <p>Koszyk: {amount}</p>
-                <Button id={`${data.id}del`} onClick={e => action({type: 'remove', payload: data})}>
+                <Button data-testid={'del'} id={`${data.id}del`} onClick={e => action({type: 'remove', payload: data})}>
                     <CgRemove size="20" />
                 </Button>
             </div>

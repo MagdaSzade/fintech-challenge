@@ -1,6 +1,6 @@
 import * as Factory from 'factory.ts';
 import {Investition, PAYMENT_PERIODS, BasicInvestition, BasicInvestitionReturnRate, InvestitionTimeStamp} from '../../src/helpers/types';
-import {BasketInterface} from '../../src/hooks/investitions/useBasket';
+import {ActionInterface, BasketInterface} from '../../src/hooks/investitions/useBasket';
 
 export const basicInvestitionFactory = Factory.Sync.makeFactory<BasicInvestition>({
     initialCapital: 10000,
@@ -34,4 +34,8 @@ export const basketInterfaceFactory = Factory.Sync.makeFactory<BasketInterface>(
     totalCapital: 0,
     total: 0,
     riskFactor: 0,
+});
+
+export const actionInterfaceFactory = Factory.Sync.makeFactory<ActionInterface>({
+    type: 'clear',
 });
