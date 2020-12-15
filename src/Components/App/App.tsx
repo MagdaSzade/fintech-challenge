@@ -1,10 +1,11 @@
 import React from 'react';
-import {Header} from '../Header/Header';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
-import {FormContainer} from '../FormContainer/FormContainer';
-import {NotFoundPage} from '../NotFoundPage/NotFoundPage';
-import {ROUTES} from '../../helpers/routes';
+import {Header} from '../Header/Header';
+import {InvestFormView} from '../Views/InvestFormView/InvestFormView';
+import {BasketView} from '../Views/BasketView/BasketView';
 import '../globalStyles';
+import {NotFoundPage} from '../Views/NotFoundPage/NotFoundPage';
+import {ROUTES} from '../../helpers/routes';
 import {conteinerStyle, contentConteinerStyle} from './App.styles';
 
 export const App = () => {
@@ -15,13 +16,13 @@ export const App = () => {
                     <Header />
                     <Switch>
                         <Route path={ROUTES.HOME} exact>
-                            <Redirect to={ROUTES.PROJECTED_PROFIT} />
-                        </Route>
-                        <Route path={ROUTES.INVESTMENT_FORM} exact>
-                            <Redirect to={ROUTES.PROJECTED_PROFIT} />
+                            <Redirect to={ROUTES.INVESTMENT_FORM} />
                         </Route>
                         <Route path={ROUTES.INVESTMENT_FORM}>
-                            <FormContainer />
+                            <InvestFormView />
+                        </Route>
+                        <Route path={ROUTES.BASKET}>
+                            <BasketView />
                         </Route>
                         <Route>
                             <NotFoundPage />

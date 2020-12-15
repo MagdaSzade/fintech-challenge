@@ -19,7 +19,6 @@ export const contentConteinerStyle = css({
     height: '97vh',
     margin: '0px auto',
     border: `solid 1px ${CSS_COLORS.COMPONENT_BACKGROUND}`,
-    borderRadius: '10px',
     owerflow: 'scroll',
     '@media (max-width: 700px)': {
         width: '100%',

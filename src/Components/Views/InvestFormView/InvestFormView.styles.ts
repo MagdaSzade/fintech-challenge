@@ -4,6 +4,7 @@ export const containerStyle = css({
     position: 'relative',
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
+    gridTemplateRows: 'auto 1fr',
     gridGap: '0.5rem',
     justifyItems: 'center',
     width: '95%',
@@ -17,7 +18,7 @@ export const containerStyle = css({
     },
     '@media (max-width: 500px)': {
         gridTemplateColumns: '1fr',
-        gridTemplateRows: '350px auto',
+        gridTemplateRows: '450px auto',
         height: '88vh',
     },
 });
@@ -27,9 +28,6 @@ export const graphStyle = css({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    '@media (max-width: 500px)': {
-        display: 'none',
-    },
 });
 
 export const span2 = css({

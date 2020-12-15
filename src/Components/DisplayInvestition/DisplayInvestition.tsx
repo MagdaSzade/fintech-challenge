@@ -1,6 +1,7 @@
-import React from 'react';
-import {CSS_COLORS} from '../../helpers/cssConsants';
+import React, {useEffect, useState} from 'react';
 import {AreaChart, Area, XAxis, YAxis, Tooltip} from 'recharts';
+import {useWindowSize} from 'react-use-size';
+import {CSS_COLORS} from '../../helpers/cssConsants';
 import {chartStyle} from './DisplayInvestition.styles';
 
 interface DisplayInvestitionProps {
@@ -8,13 +9,25 @@ interface DisplayInvestitionProps {
 }
 
 export const DisplayInvestition: React.FC<DisplayInvestitionProps> = ({data}) => {
+    const [graphWidth, setGraphWidth] = useState(0);
+    const {width} = useWindowSize();
+
+    useEffect(() => {
+        if (width > 660) {
+            setGraphWidth(600);
+        } else {
+            setGraphWidth(width - 18);
+        }
+        console.log(width);
+    }, [width]);
+
     const displayAsCurrency = (inputValue: any): string => {
         return typeof inputValue === 'number' ? inputValue.toLocaleString('pl-PL', {style: 'currency', currency: 'PLN'}) : inputValue;
     };
 
     return (
         <div className={chartStyle}>
-            <AreaChart width={500} height={250} data={data} margin={{top: 10, right: 30, left: 0, bottom: 0}}>
+            <AreaChart width={graphWidth} height={graphWidth / 2} data={data} margin={{top: 10, right: 30, left: 0, bottom: 0}}>
                 <defs>
                     <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="5%" stopColor={CSS_COLORS.CAPITAL} stopOpacity={0.8} />

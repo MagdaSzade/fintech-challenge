@@ -2,7 +2,7 @@ import {cx} from 'emotion';
 import React from 'react';
 import {ActionInterface, BasketInterface} from '../../hooks/investitions/useBasket';
 import {uniqueRecords} from '../../helpers/basket';
-import {basketContainerStyle, coverStyle} from './BasketConteiner.styles';
+import {basketContainerStyle, coverStyle} from './BasketContainer.styles';
 import {componentBackgroundStyle} from '../globalStyles';
 import {ListOfInvestitions} from '../ListOfInvestitions/ListOfInvestitions';
 import {InvestitionSummary} from '../InvestitionSummary/InvestitionSummary';
@@ -28,7 +28,7 @@ export const BasketContainer: React.FC<BasketContainerInterface> = ({basket, act
         <div className={cx(componentBackgroundStyle, coverStyle)}>
             <div className={basketContainerStyle} style={isDisplayed(!haveItems)}>
                 <p>Twój koszyk jest pusty</p>
-                <NavLink to={ROUTES.INVESTITIONS_LIST}>
+                <NavLink to={ROUTES.BASKET}>
                     <Button type="button" style={{textDecoration: 'underline'}}>
                         Kup inwestycje
                     </Button>

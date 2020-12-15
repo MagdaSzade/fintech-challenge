@@ -15,7 +15,6 @@ injectGlobal`
 
 export const componentBackgroundStyle = css({
     backgroundColor: CSS_COLORS.COMPONENT_BACKGROUND,
-    borderRadius: '10px',
     width: '100%',
     display: 'flex',
     justifyContent: 'center',

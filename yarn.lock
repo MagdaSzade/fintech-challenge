@@ -9899,6 +9899,13 @@ react-transition-group@^4.4.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
+react-use-size@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/react-use-size/-/react-use-size-1.2.3.tgz#ef08e9e28192bd0d2c8a9461c274db70cfc9f611"
+  integrity sha512-Ilocuqa8bI+OkOo0juIGNaTevnHScSfTv7i2Eu/DbzBRWqFj6zZ8bBVGylBmnMYxn+JvGGdBOK+XvDhor+GSTg==
+  dependencies:
+    resize-observer-polyfill "1.5.1"
+
 react@^16.13.1:
   version "16.14.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
@@ -10234,7 +10241,7 @@ requires-port@^1.0.0:
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
-resize-observer-polyfill@^1.5.0:
+resize-observer-polyfill@1.5.1, resize-observer-polyfill@^1.5.0:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
   integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==

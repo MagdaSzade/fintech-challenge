@@ -3,7 +3,6 @@ import {CSS_COLORS} from '../../helpers/cssConsants';
 
 export const formStyles = css({
     textAlign: 'center',
-    maxHeight: '330px',
     input: {
         textAlign: 'right',
     },
@@ -15,7 +14,7 @@ export const labelStyle = css({
 });
 
 export const inpuForSelectStyle = css({
-    paddingBottom: '0.3rem',
+    paddingBottom: '0.8rem',
 });
 
 export const inputStyle = css({
@@ -34,4 +33,16 @@ export const errorStyle = css({
     background: CSS_COLORS.COMPONENT_BACKGROUND,
     fontSize: '0.8rem',
     zIndex: 100,
+});
+
+export const formContainerStyle = css({
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    gridTemplateRows: '3rem 1fr',
+});
+
+export const titleStyle = css({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
 });

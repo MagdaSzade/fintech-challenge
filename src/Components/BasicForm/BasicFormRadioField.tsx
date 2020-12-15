@@ -1,7 +1,7 @@
 import React from 'react';
 import {cx} from 'emotion';
-import {inputStyle, inpuForSelectStyle, labelStyle} from './BasicForm.styles';
 import {PAYMENT_PERIODS} from '../../helpers/types';
+import {inputStyle, inpuForSelectStyle, labelStyle} from './BasicForm.styles';
 
 interface SelectFieldProps {
     label: string;
